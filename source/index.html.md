@@ -3,12 +3,9 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
   - python
-  - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -19,62 +16,57 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+The Amelia API can be used to poll Amelia for information, update BPNs, update users, carry on a conversation, and more.
 
 # Authentication
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
 ```python
-import kittn
+import Amelia
 
-api = kittn.authorize('meowmeowmeow')
+Amelia.login(url, username, password)
 ```
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+curl -vk -X POST "https://amelia_url_here/AmeliaRest/api/v1/auth/login
+  -H "Content-Type:application/json"
+  -d '{"url":url,"username":username,"password":password}'
 ```
 
-```javascript
-const kittn = require('kittn');
+> Make sure to replace `token` with your API key.
 
-let api = kittn.authorize('meowmeowmeow');
+> The above command returns JSON structured like this:
+
+```json
+{
+    "status": 201,
+    "token": "6531bec3-6e80-4ab9-b0bc-d99aeda258a4",
+    "userModel": {
+        "agent": true,
+        "anonymous": false,
+        "availability": "READY",
+        "email": "user@ipsoft.com",
+        "name": "User Name",
+        "userId": "154b9b97-8519-4404-8e9f-069a69d470e0"
+    }
+}
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+The Amelia API uses authentication tokens. API tokens are temporary and last as long as that user's session is active. When making a login call, an authentication token is returned.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+Once a token has been issued, Amelia for the API key to be included in all API requests to the server in a header that looks like the following:
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`X-Amelia-Rest-Token: token`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>token</code> with your API key.
 </aside>
 
 # Kittens
 
 ## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
 
 ```python
 import kittn
@@ -86,13 +78,6 @@ api.kittens.get()
 ```shell
 curl "http://example.com/api/kittens"
   -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
 ```
 
 > The above command returns JSON structured like this:
@@ -135,13 +120,6 @@ Remember — a happy kitten is an authenticated kitten!
 
 ## Get a Specific Kitten
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
 ```python
 import kittn
 
@@ -152,13 +130,6 @@ api.kittens.get(2)
 ```shell
 curl "http://example.com/api/kittens/2"
   -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
 ```
 
 > The above command returns JSON structured like this:
@@ -189,13 +160,6 @@ ID | The ID of the kitten to retrieve
 
 ## Delete a Specific Kitten
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
 ```python
 import kittn
 
@@ -207,13 +171,6 @@ api.kittens.delete(2)
 curl "http://example.com/api/kittens/2"
   -X DELETE
   -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
 ```
 
 > The above command returns JSON structured like this:
