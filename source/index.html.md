@@ -132,9 +132,7 @@ curl -kv --header 'Content-Type: application/json'
 
 This endpoint polls a conversation and returns data about a conversation.
 
-> The above command returns a lot of data about a conversation in JSON.
-
-An example response:
+> The above command returns a lot of data about a conversation in JSON:
 
 ```json
 {
