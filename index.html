@@ -259,8 +259,6 @@ curl -vk -X POST <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/aut
   -d <span class="s1">'{"ameliaUrl":amelia_url_here/Amelia,"username":username,"password":password}'</span>
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>token</code> with your API key.</p>
-
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -287,7 +285,16 @@ You must replace <code>token</code> with your API key.
 </aside>
 <h1 id='conversation'>Conversation</h1><h2 id='start-a-new-conversation'>Start a new conversation</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">Amelia</span>
 
-<span class="n">Amelia</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">TBD</span><span class="p">)</span>
+<span class="n">Amelia</span><span class="o">.</span><span class="n">createNewConversation</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">deliveryMode</span><span class="p">,</span> <span class="n">debugMode</span><span class="p">,</span> <span class="n">webhookUrl</span><span class="p">,</span> <span class="n">secret</span><span class="p">)</span>
+<span class="c">#REQUIRED PARAMETERS</span>
+<span class="c">#url = The Amelia instance you want to connect to</span>
+<span class="c">#token = The API token issued to you</span>
+<span class="c">#domain = The Anmelia domain where you want to start a conversation, use the domain code</span>
+<span class="c">#</span>
+<span class="c">#OPTIONAL PARAMETERS</span>
+<span class="c">#deliveryMode = POLLING or WEBHOOK. Defaults to POLLING. Will deliver messages to a specific URL.</span>
+<span class="c">#webhookUrl = Required if WEBHOOK deliveryMode is chosen. URL to deliver messages to.</span>
+<span class="c">#secret = If specified, this exact text will be included in all posts to the specified webhookUrl as a header X-Amelia-Webhook-Secret, which you may use to verify that the POST in question is coming from Amelia, and even from a specific conversation.</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -vk -X POST  <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/conversations/new"</span>
 -H <span class="s2">"X-Amelia-Rest-Token:token"</span>
 -H <span class="s2">"Content-Type:application/json"</span>
