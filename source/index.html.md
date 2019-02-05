@@ -35,8 +35,6 @@ curl -vk -X POST "https://amelia_url_here/AmeliaRest/api/v1/auth/login"
   -d '{"ameliaUrl":amelia_url_here/Amelia,"username":username,"password":password}'
 ```
 
-> Make sure to replace `token` with your API key.
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -71,7 +69,16 @@ You must replace <code>token</code> with your API key.
 ```python
 import Amelia
 
-Amelia.new(TBD)
+Amelia.createNewConversation(url, token, domain, deliveryMode, debugMode, webhookUrl, secret)
+#REQUIRED PARAMETERS
+#url = The Amelia instance you want to connect to
+#token = The API token issued to you
+#domain = The Anmelia domain where you want to start a conversation, use the domain code
+#
+#OPTIONAL PARAMETERS
+#deliveryMode = POLLING or WEBHOOK. Defaults to POLLING. Will deliver messages to a specific URL.
+#webhookUrl = Required if WEBHOOK deliveryMode is chosen. URL to deliver messages to.
+#secret = If specified, this exact text will be included in all posts to the specified webhookUrl as a header X-Amelia-Webhook-Secret, which you may use to verify that the POST in question is coming from Amelia, and even from a specific conversation.
 ```
 
 ```shell
