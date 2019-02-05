@@ -108,7 +108,10 @@ import Amelia
 ```
 
 ```shell
-curl -kv --header 'Content-Type: application/json' -X POST "https://amelia_url_here/AmeliaRest/api/v1/conversations/sessionId/send" -H 'X-Amelia-Rest-Token: token' -d '{"messageText":"some message to Amelia here"}'
+curl -kv --header 'Content-Type: application/json'
+-X POST "https://amelia_url_here/AmeliaRest/api/v1/conversations/sessionId/send"
+-H 'X-Amelia-Rest-Token: token'
+-d '{"messageText":"some message to Amelia here"}'
 ```
 
 This endpoint sends a message to Amelia for a given conversation.
@@ -122,7 +125,9 @@ import Amelia
 ```
 
 ```shell
-curl -kv --header 'Content-Type: application/json' -X POST "https://amelia_url_here/AmeliaRest/api/v1/conversations/sessionId/poll" -H 'X-Amelia-Rest-Token: token'
+curl -kv --header 'Content-Type: application/json'
+-X POST "https://amelia_url_here/AmeliaRest/api/v1/conversations/sessionId/poll"
+-H 'X-Amelia-Rest-Token: token'
 ```
 
 This endpoint polls a conversation and returns data about a conversation.
