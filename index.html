@@ -320,7 +320,10 @@ You must replace <code>token</code> with your API key.
 <li>secret = If specified, this exact text will be included in all posts to the specified webhookUrl as a header X-Amelia-Webhook-Secret, which you may use to verify that the POST in question is coming from Amelia, and even from a specific conversation.</li>
 </ul>
 <h2 id='send-a-message-to-amelia'>Send a message to Amelia</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">Amelia</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -kv --header <span class="s1">'Content-Type: application/json'</span> -X POST <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/conversations/sessionId/send"</span> -H <span class="s1">'X-Amelia-Rest-Token: token'</span> -d <span class="s1">'{"messageText":"some message to Amelia here"}'</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -kv --header <span class="s1">'Content-Type: application/json'</span>
+-X POST <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/conversations/sessionId/send"</span>
+-H <span class="s1">'X-Amelia-Rest-Token: token'</span>
+-d <span class="s1">'{"messageText":"some message to Amelia here"}'</span>
 </code></pre>
 <p>This endpoint sends a message to Amelia for a given conversation.</p>
 
@@ -328,7 +331,9 @@ You must replace <code>token</code> with your API key.
 <p>The above command, when successful, simply returns a 200 OK message.</p>
 </blockquote>
 <h2 id='poll-a-conversation'>Poll a conversation</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">Amelia</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -kv --header <span class="s1">'Content-Type: application/json'</span> -X POST <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/conversations/sessionId/poll"</span> -H <span class="s1">'X-Amelia-Rest-Token: token'</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -kv --header <span class="s1">'Content-Type: application/json'</span>
+-X POST <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/conversations/sessionId/poll"</span>
+-H <span class="s1">'X-Amelia-Rest-Token: token'</span>
 </code></pre>
 <p>This endpoint polls a conversation and returns data about a conversation.</p>
 
