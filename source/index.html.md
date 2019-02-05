@@ -70,15 +70,6 @@ You must replace <code>token</code> with your API key.
 import Amelia
 
 Amelia.createNewConversation(url, token, domain, deliveryMode, debugMode, webhookUrl, secret)
-#REQUIRED PARAMETERS
-#url = The Amelia instance you want to connect to
-#token = The API token issued to you
-#domain = The Anmelia domain where you want to start a conversation, use the domain code
-#
-#OPTIONAL PARAMETERS
-#deliveryMode = POLLING or WEBHOOK. Defaults to POLLING. Will deliver messages to a specific URL.
-#webhookUrl = Required if WEBHOOK deliveryMode is chosen. URL to deliver messages to.
-#secret = If specified, this exact text will be included in all posts to the specified webhookUrl as a header X-Amelia-Webhook-Secret, which you may use to verify that the POST in question is coming from Amelia, and even from a specific conversation.
 ```
 
 ```shell
@@ -100,3 +91,12 @@ curl -vk -X POST  "https://amelia_url_here/AmeliaRest/api/v1/conversations/new"
 
 This endpoint starts a new conversation with Amelia.
 
+### REQUIRED PARAMETERS
+* url = The Amelia instance you want to connect to.
+* token = The API token issued to you.
+* domain = The Anmelia domain where you want to start a conversation, use the domain code.
+
+### OPTIONAL PARAMETERS
+* deliveryMode = POLLING or WEBHOOK. Defaults to POLLING. Will deliver messages to a specific URL.
+* webhookUrl = Required if WEBHOOK deliveryMode is chosen. URL to deliver messages to.
+* secret = If specified, this exact text will be included in all posts to the specified webhookUrl as a header X-Amelia-Webhook-Secret, which you may use to verify that the POST in question is coming from Amelia, and even from a specific conversation.
