@@ -25,7 +25,7 @@ The Amelia API can be used to poll Amelia for information, update BPNs, update u
 ```python
 import amelia
 
-amelia.authentication()(url, username, password)
+amelia.authentication().login(url, username, password)
 ```
 
 ```shell
