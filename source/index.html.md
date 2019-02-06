@@ -823,3 +823,75 @@ This endpoint polls a conversation and returns data about a conversation.
 * X-Amelia-Conversation-Id = This is the ID denotes a unique conversation with Amelia.
 * messageText = The raw message text returned from Amelia.
 * timeStamp = The time a message was delivered in epoch time.
+
+# Intents
+
+## Get the intents by domain
+
+```python
+import Amelia
+```
+
+```shell
+curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/training/intents/domain/domainId/"
+-H "X-Amelia-Rest-Token: token"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+	"first": true,
+	"last": false,
+	"totalElements": 2,
+	"totalPages": 1,
+	"content": [{
+		"id": "cc865f2b-b5df-45ce-9add-76b82c141521",
+		"name": "some_goal",
+		"description": "description_of_some_goal",
+		"active": true
+	}, {
+		"id": "82041084-1c16-4bb4-86de-57b2e5ed9853",
+		"name": "some_other_goal",
+		"description": "description_of_some_other_goal",
+		"active": true
+	}]
+}
+```
+
+The domainId to be passed in is not the domain name, but rather the UUID associated with a specific domain. Use the domain API to obtain the domainId. The id returned under content is the individual intent id, needed to look up information about that intent.
+
+## Get the details of a single intent
+
+```python
+import Amelia
+```
+
+```shell
+curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/training/intents/intentId/"
+-H "X-Amelia-Rest-Token: token"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+	"id": "03c26b9b-295f-445d-9ba1-e3360213c13d",
+	"intentId": "cc865f2b-b5df-45ce-9add-76b82c141521",
+	"domainId": "2a563698-bbe4-4eb3-a5f6-08bcea57cb23",
+	"name": "some_goal",
+	"code": "some_goal_code",
+	"description": "description_of_some_goal",
+	"keyPhrases": ["goal", "phrases", "are found", "in", "here"],
+	"actionPhrase": null,
+	"confirmContinueQuestion": "",
+	"actionType": "EXECUTE_BPN",
+	"actionSystemData": "some_bpn_to_execute",
+	"status": "ACTIVE",
+	"grammarId": null,
+	"onResumeContextConfirmBehavior": "ALWAYS",
+	"onSwitchContextAction": "SUSPEND"
+}
+```
+
+The intentId can be obtained from the [get intents endpoint](#get-the-intents-by-domain).
