@@ -896,7 +896,7 @@ curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/training/intents/domai
 }
 ```
 
-The domainId to be passed in is not the domain name, but rather the UUID associated with a specific domain. Use the [#get-the-intents-by-domain](domain API) to obtain the domainId. The id returned under content is the individual intent id, needed to look up information about that intent.
+The domainId to be passed in is not the domain name, but rather the UUID associated with a specific domain. Use the [#get-all-domains](domain API) to obtain the domainId. The id returned under content is the individual intent id, needed to look up information about that intent.
 
 ## Get the details of a single intent
 
