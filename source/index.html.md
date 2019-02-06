@@ -25,7 +25,8 @@ The Amelia API can be used to poll Amelia for information, update BPNs, update u
 ```python
 import Amelia
 
-Amelia.login(url, username, password)
+auth = Amelia.Authentication()
+auth.login(url, username, password)
 ```
 
 ```shell
@@ -69,7 +70,8 @@ You must replace <code>token</code> with your API key.
 ```python
 import Amelia
 
-Amelia.createNewConversation(url, token, domain, deliveryMode, debugMode, webhookUrl, secret)
+conv = Amelia.Conversation()
+conv.new(url, token, domain, deliveryMode, debugMode, webhookUrl, secret)
 ```
 
 ```shell
