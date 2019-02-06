@@ -1048,6 +1048,8 @@ You must replace <code>token</code> with your API key.
 <li>timeStamp = The time a message was delivered in epoch time.</li>
 </ul>
 <h1 id='domains'>Domains</h1><h2 id='get-all-domains'>Get all domains</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">amelia</span>
+
+<span class="n">amelia</span><span class="o">.</span><span class="n">domain</span><span class="p">()</span><span class="o">.</span><span class="n">getAll</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -vk <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/admin/domains/"</span>
 -H <span class="s2">"X-Amelia-Rest-Token: token"</span>
 </code></pre>
