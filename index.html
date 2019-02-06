@@ -277,7 +277,8 @@
 </blockquote>
 <pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">Amelia</span>
 
-<span class="n">Amelia</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+<span class="n">auth</span> <span class="o">=</span> <span class="n">Amelia</span><span class="o">.</span><span class="n">Authentication</span><span class="p">()</span>
+<span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 </code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl -vk -X POST <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/auth/login"</span>
   -H <span class="s2">"Content-Type:application/json"</span>
@@ -310,7 +311,8 @@ You must replace <code>token</code> with your API key.
 </aside>
 <h1 id='conversation'>Conversation</h1><h2 id='start-a-new-conversation'>Start a new conversation</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">Amelia</span>
 
-<span class="n">Amelia</span><span class="o">.</span><span class="n">createNewConversation</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">deliveryMode</span><span class="p">,</span> <span class="n">debugMode</span><span class="p">,</span> <span class="n">webhookUrl</span><span class="p">,</span> <span class="n">secret</span><span class="p">)</span>
+<span class="n">conv</span> <span class="o">=</span> <span class="n">Amelia</span><span class="o">.</span><span class="n">Conversation</span><span class="p">()</span>
+<span class="n">conv</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">deliveryMode</span><span class="p">,</span> <span class="n">debugMode</span><span class="p">,</span> <span class="n">webhookUrl</span><span class="p">,</span> <span class="n">secret</span><span class="p">)</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -vk -X POST  <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/conversations/new"</span>
 -H <span class="s2">"X-Amelia-Rest-Token:token"</span>
 -H <span class="s2">"Content-Type:application/json"</span>
