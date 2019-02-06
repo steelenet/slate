@@ -824,6 +824,43 @@ This endpoint polls a conversation and returns data about a conversation.
 * messageText = The raw message text returned from Amelia.
 * timeStamp = The time a message was delivered in epoch time.
 
+# Domains
+
+## Get all domains
+
+```python
+import Amelia
+```
+
+```shell
+curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/domains/"
+-H "X-Amelia-Rest-Token: token"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+	"first": true,
+	"last": true,
+	"totalElements": 2,
+	"totalPages": 1,
+	"content": [{
+		"id": "18f1df3a-12cd-11e9-a3ac-00505696b1a6",
+		"name": "Some domain",
+		"code": "some_domain_code",
+		"enabled": true
+	}, {
+		"id": "d969610c-9c37-4864-83ff-0e9a33ee82f1",
+		"name": "Some other domain",
+		"code": "some_other_domain_code",
+		"enabled": true
+	}]
+}
+```
+
+Each id returned under content is a unique UUID to identify that domain.
+
 # Intents
 
 ## Get the intents by domain
@@ -859,7 +896,7 @@ curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/training/intents/domai
 }
 ```
 
-The domainId to be passed in is not the domain name, but rather the UUID associated with a specific domain. Use the domain API to obtain the domainId. The id returned under content is the individual intent id, needed to look up information about that intent.
+The domainId to be passed in is not the domain name, but rather the UUID associated with a specific domain. Use the [#get-the-intents-by-domain](domain API) to obtain the domainId. The id returned under content is the individual intent id, needed to look up information about that intent.
 
 ## Get the details of a single intent
 
