@@ -240,6 +240,14 @@
               </ul>
           </li>
           <li>
+            <a href="#domains" class="toc-h1 toc-link" data-title="Domains">Domains</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-domains" class="toc-h2 toc-link" data-title="Get all domains">Get all domains</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#intents" class="toc-h1 toc-link" data-title="Intents">Intents</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1039,6 +1047,32 @@ You must replace <code>token</code> with your API key.
 <li>messageText = The raw message text returned from Amelia.</li>
 <li>timeStamp = The time a message was delivered in epoch time.</li>
 </ul>
+<h1 id='domains'>Domains</h1><h2 id='get-all-domains'>Get all domains</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">Amelia</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -vk <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/admin/domains/"</span>
+-H <span class="s2">"X-Amelia-Rest-Token: token"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"totalElements"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18f1df3a-12cd-11e9-a3ac-00505696b1a6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some domain"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_domain_code"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d969610c-9c37-4864-83ff-0e9a33ee82f1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some other domain"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_domain_code"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Each id returned under content is a unique UUID to identify that domain.</p>
 <h1 id='intents'>Intents</h1><h2 id='get-the-intents-by-domain'>Get the intents by domain</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">Amelia</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -vk <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/admin/training/intents/domain/domainId/"</span>
 -H <span class="s2">"X-Amelia-Rest-Token: token"</span>
@@ -1064,7 +1098,7 @@ You must replace <code>token</code> with your API key.
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>The domainId to be passed in is not the domain name, but rather the UUID associated with a specific domain. Use the domain API to obtain the domainId. The id returned under content is the individual intent id, needed to look up information about that intent.</p>
+<p>The domainId to be passed in is not the domain name, but rather the UUID associated with a specific domain. Use the <a href="#get-all-domains">domain API</a> to obtain the domainId. The id returned under content is the individual intent id, needed to look up information about that intent.</p>
 <h2 id='get-the-details-of-a-single-intent'>Get the details of a single intent</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">Amelia</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -vk <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/admin/training/intents/intentId/"</span>
 -H <span class="s2">"X-Amelia-Rest-Token: token"</span>
