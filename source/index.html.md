@@ -830,6 +830,8 @@ This endpoint polls a conversation and returns data about a conversation.
 
 ```python
 import amelia
+
+amelia.domain().getAll(url, token)
 ```
 
 ```shell
