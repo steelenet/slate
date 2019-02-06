@@ -23,10 +23,9 @@ The Amelia API can be used to poll Amelia for information, update BPNs, update u
 > To authorize, use this code:
 
 ```python
-import Amelia
+import amelia
 
-auth = Amelia.Authentication()
-auth.login(url, username, password)
+amelia.authentication()(url, username, password)
 ```
 
 ```shell
@@ -68,10 +67,9 @@ You must replace <code>token</code> with your API key.
 ## Start a new conversation
 
 ```python
-import Amelia
+import amelia
 
-conv = Amelia.Conversation()
-conv.new(url, token, domain, deliveryMode, debugMode, webhookUrl, secret)
+amelia.conversation().new(url, token, domain, deliveryMode, debugMode, webhookUrl, secret)
 ```
 
 ```shell
@@ -106,7 +104,7 @@ This endpoint starts a new conversation with Amelia.
 ## Send a message to Amelia
 
 ```python
-import Amelia
+import amelia
 ```
 
 ```shell
@@ -831,7 +829,7 @@ This endpoint polls a conversation and returns data about a conversation.
 ## Get all domains
 
 ```python
-import Amelia
+import amelia
 ```
 
 ```shell
@@ -868,7 +866,7 @@ Each id returned under content is a unique UUID to identify that domain.
 ## Get the intents by domain
 
 ```python
-import Amelia
+import amelia
 ```
 
 ```shell
@@ -903,7 +901,7 @@ The domainId to be passed in is not the domain name, but rather the UUID associa
 ## Get the details of a single intent
 
 ```python
-import Amelia
+import amelia
 ```
 
 ```shell
