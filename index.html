@@ -272,6 +272,8 @@
         <h1 id='introduction'>Introduction</h1>
 <p>The Amelia API can be used to poll Amelia for information, update BPNs, update users, carry on a conversation, and more.</p>
 <h1 id='authentication'>Authentication</h1>
+<p>POST /AmeliaRest/api/v1/auth/login</p>
+
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
@@ -309,6 +311,8 @@ curl -vk -X POST <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/aut
 You must replace <code>token</code> with your API key.
 </aside>
 <h1 id='conversation'>Conversation</h1><h2 id='start-a-new-conversation'>Start a new conversation</h2>
+<p>POST /AmeliaRest/api/v1/conversations/new</p>
+
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
@@ -343,6 +347,8 @@ You must replace <code>token</code> with your API key.
 <li>secret = If specified, this exact text will be included in all posts to the specified webhookUrl as a header X-Amelia-Webhook-Secret, which you may use to verify that the POST in question is coming from Amelia, and even from a specific conversation.</li>
 </ul>
 <h2 id='send-a-message-to-amelia'>Send a message to Amelia</h2>
+<p>POST /AmeliaRest/api/v1/conversations/{sessionId}/send</p>
+
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
@@ -360,6 +366,8 @@ You must replace <code>token</code> with your API key.
 <p>The above command, when successful, simply returns a 200 OK message.</p>
 </blockquote>
 <h2 id='poll-a-conversation'>Poll a conversation</h2>
+<p>POST /AmeliaRest/api/v1/conversations/{sessionId}/poll</p>
+
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
@@ -1064,6 +1072,8 @@ You must replace <code>token</code> with your API key.
 <li>timeStamp = The time a message was delivered in epoch time.</li>
 </ul>
 <h1 id='domains'>Domains</h1><h2 id='get-all-domains'>Get all domains</h2>
+<p>GET /AmeliaRest/api/v1/admin/domains/</p>
+
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
@@ -1096,6 +1106,8 @@ You must replace <code>token</code> with your API key.
 </span></code></pre>
 <p>Each id returned under content is a unique UUID to identify that domain.</p>
 <h1 id='intents'>Intents</h1><h2 id='get-the-intents-by-domain'>Get the intents by domain</h2>
+<p>GET /AmeliaRest/api/v1/admin/training/intents/domain/{domainId}/</p>
+
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
@@ -1128,6 +1140,8 @@ You must replace <code>token</code> with your API key.
 </span></code></pre>
 <p>The domainId to be passed in is not the domain name, but rather the UUID associated with a specific domain. Use the <a href="#get-all-domains">domain API</a> to obtain the domainId. The id returned under content is the individual intent id, needed to look up information about that intent.</p>
 <h2 id='get-the-details-of-a-single-intent'>Get the details of a single intent</h2>
+<p>GET /AmeliaRest/api/v1/admin/training/intents/{intentId}/</p>
+
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
