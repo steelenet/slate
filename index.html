@@ -1076,6 +1076,8 @@ You must replace <code>token</code> with your API key.
 </span></code></pre>
 <p>Each id returned under content is a unique UUID to identify that domain.</p>
 <h1 id='intents'>Intents</h1><h2 id='get-the-intents-by-domain'>Get the intents by domain</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">amelia</span>
+
+<span class="n">amelia</span><span class="o">.</span><span class="n">intent</span><span class="p">()</span><span class="o">.</span><span class="n">getAll</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">domainId</span><span class="p">)</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -vk <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/admin/training/intents/domain/domainId/"</span>
 -H <span class="s2">"X-Amelia-Rest-Token: token"</span>
 </code></pre>
