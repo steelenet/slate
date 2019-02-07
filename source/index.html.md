@@ -123,7 +123,7 @@ This endpoint sends a message to Amelia for a given conversation. The sessionId 
 ## Poll a conversation
 
 ```python
-import Amelia
+import amelia
 
 amelia.conversation().poll(url, token, sessionId)
 ```
