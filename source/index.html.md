@@ -105,6 +105,8 @@ This endpoint starts a new conversation with Amelia.
 
 ```python
 import amelia
+
+amelia.conversation().sendMessage(url, token, sessionId, message)
 ```
 
 ```shell
@@ -114,7 +116,7 @@ curl -kv --header 'Content-Type: application/json'
 -d '{"messageText":"some message to Amelia here"}'
 ```
 
-This endpoint sends a message to Amelia for a given conversation.
+This endpoint sends a message to Amelia for a given conversation. The sessionId can be obtained when starting a conversation with Amelia using the [start a new conversation endpoint](#start-a-new-conversation)
 
 > The above command, when successful, simply returns a 200 OK message.
 
