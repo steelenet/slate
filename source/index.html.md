@@ -869,6 +869,8 @@ Each id returned under content is a unique UUID to identify that domain.
 
 ```python
 import amelia
+
+amelia.intent().getAll(url, token, domainId)
 ```
 
 ```shell
