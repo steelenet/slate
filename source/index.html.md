@@ -20,6 +20,8 @@ The Amelia API can be used to poll Amelia for information, update BPNs, update u
 
 # Authentication
 
+POST /AmeliaRest/api/v1/auth/login
+
 > Example Request:
 
 ```python
@@ -66,6 +68,8 @@ You must replace <code>token</code> with your API key.
 
 ## Start a new conversation
 
+POST /AmeliaRest/api/v1/conversations/new
+
 > Example Request:
 
 ```python
@@ -105,6 +109,8 @@ This endpoint starts a new conversation with Amelia.
 
 ## Send a message to Amelia
 
+POST /AmeliaRest/api/v1/conversations/{sessionId}/send
+
 > Example Request:
 
 ```python
@@ -125,6 +131,8 @@ This endpoint sends a message to Amelia for a given conversation. The sessionId 
 > The above command, when successful, simply returns a 200 OK message.
 
 ## Poll a conversation
+
+POST /AmeliaRest/api/v1/conversations/{sessionId}/poll
 
 > Example Request:
 
@@ -838,6 +846,8 @@ This endpoint polls a conversation and returns data about a conversation. The se
 
 ## Get all domains
 
+GET /AmeliaRest/api/v1/admin/domains/
+
 > Example Request:
 
 ```python
@@ -879,6 +889,8 @@ Each id returned under content is a unique UUID to identify that domain.
 
 ## Get the intents by domain
 
+GET /AmeliaRest/api/v1/admin/training/intents/domain/{domainId}/
+
 > Example Request:
 
 ```python
@@ -917,6 +929,8 @@ curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/training/intents/domai
 The domainId to be passed in is not the domain name, but rather the UUID associated with a specific domain. Use the [domain API](#get-all-domains) to obtain the domainId. The id returned under content is the individual intent id, needed to look up information about that intent.
 
 ## Get the details of a single intent
+
+GET /AmeliaRest/api/v1/admin/training/intents/{intentId}/
 
 > Example Request:
 
