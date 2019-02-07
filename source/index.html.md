@@ -97,12 +97,12 @@ curl -vk -X POST  "https://amelia_url_here/AmeliaRest/api/v1/conversations/new"
 
 This endpoint starts a new conversation with Amelia.
 
-### REQUIRED PARAMETERS
+### REQUIRED VALUES
 * url = The Amelia instance you want to connect to.
 * token = The API token issued to you.
-* domain = The Anmelia domain where you want to start a conversation, use the domain code.
+* domain = The Amelia domain where you want to start a conversation, use the domain code.
 
-### OPTIONAL PARAMETERS
+### OPTIONAL VALUES
 * deliveryMode = POLLING or WEBHOOK. Defaults to POLLING. Will deliver messages to a specific URL.
 * webhookUrl = Required if WEBHOOK deliveryMode is chosen. URL to deliver messages to.
 * secret = If specified, this exact text will be included in all posts to the specified webhookUrl as a header X-Amelia-Webhook-Secret, which you may use to verify that the POST in question is coming from Amelia, and even from a specific conversation.
@@ -884,6 +884,15 @@ curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/domains/"
 ```
 
 Each id returned under content is a unique UUID to identify that domain.
+
+### Optional URL parameters
+
+* name = The name of the domain
+* code = The code of the domain
+* search = Searches both name and code
+* page = The page result to return
+* size = The number of results to return
+* sort = A list of {field}, {dir} directives. Dir can either be asc or desc.
 
 # Intents
 
