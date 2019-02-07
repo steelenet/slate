@@ -1104,6 +1104,8 @@ You must replace <code>token</code> with your API key.
 </span></code></pre>
 <p>The domainId to be passed in is not the domain name, but rather the UUID associated with a specific domain. Use the <a href="#get-all-domains">domain API</a> to obtain the domainId. The id returned under content is the individual intent id, needed to look up information about that intent.</p>
 <h2 id='get-the-details-of-a-single-intent'>Get the details of a single intent</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">amelia</span>
+
+<span class="n">amelia</span><span class="o">.</span><span class="n">intent</span><span class="p">()</span><span class="o">.</span><span class="n">getIntent</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">intentId</span><span class="p">)</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -vk <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/admin/training/intents/intentId/"</span>
 -H <span class="s2">"X-Amelia-Rest-Token: token"</span>
 </code></pre>
