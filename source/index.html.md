@@ -20,7 +20,7 @@ The Amelia API can be used to poll Amelia for information, update BPNs, update u
 
 # Authentication
 
-POST /AmeliaRest/api/v1/auth/login
+> <h4>POST /AmeliaRest/api/v1/auth/login</h4>
 
 > Example Request:
 
@@ -68,7 +68,7 @@ You must replace <code>token</code> with your API key.
 
 ## Start a new conversation
 
-POST /AmeliaRest/api/v1/conversations/new
+> POST /AmeliaRest/api/v1/conversations/new
 
 > Example Request:
 
@@ -109,7 +109,7 @@ This endpoint starts a new conversation with Amelia.
 
 ## Send a message to Amelia
 
-POST /AmeliaRest/api/v1/conversations/{sessionId}/send
+> POST /AmeliaRest/api/v1/conversations/{sessionId}/send
 
 > Example Request:
 
@@ -132,7 +132,7 @@ This endpoint sends a message to Amelia for a given conversation. The sessionId 
 
 ## Poll a conversation
 
-POST /AmeliaRest/api/v1/conversations/{sessionId}/poll
+> POST /AmeliaRest/api/v1/conversations/{sessionId}/poll
 
 > Example Request:
 
@@ -846,7 +846,7 @@ This endpoint polls a conversation and returns data about a conversation. The se
 
 ## Get all domains
 
-GET /AmeliaRest/api/v1/admin/domains/
+> GET /AmeliaRest/api/v1/admin/domains/
 
 > Example Request:
 
@@ -889,7 +889,7 @@ Each id returned under content is a unique UUID to identify that domain.
 
 ## Get the intents by domain
 
-GET /AmeliaRest/api/v1/admin/training/intents/domain/{domainId}/
+> GET /AmeliaRest/api/v1/admin/training/intents/domain/{domainId}/
 
 > Example Request:
 
@@ -930,7 +930,7 @@ The domainId to be passed in is not the domain name, but rather the UUID associa
 
 ## Get the details of a single intent
 
-GET /AmeliaRest/api/v1/admin/training/intents/{intentId}/
+> GET /AmeliaRest/api/v1/admin/training/intents/{intentId}/
 
 > Example Request:
 
