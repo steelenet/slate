@@ -20,7 +20,7 @@ The Amelia API can be used to poll Amelia for information, update BPNs, update u
 
 # Authentication
 
-> To authorize, use this code:
+> Example Request:
 
 ```python
 import amelia
@@ -35,7 +35,7 @@ curl -vk -X POST "https://amelia_url_here/AmeliaRest/api/v1/auth/login"
   -d '{"ameliaUrl":amelia_url_here/Amelia,"username":username,"password":password}'
 ```
 
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {
@@ -66,6 +66,8 @@ You must replace <code>token</code> with your API key.
 
 ## Start a new conversation
 
+> Example Request:
+
 ```python
 import amelia
 
@@ -79,7 +81,7 @@ curl -vk -X POST  "https://amelia_url_here/AmeliaRest/api/v1/conversations/new"
 -d '{"domain":domain,"deliveryMode":"POLLING","receiveDebugMessages":"false"}'
 ```
 
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {
@@ -103,6 +105,8 @@ This endpoint starts a new conversation with Amelia.
 
 ## Send a message to Amelia
 
+> Example Request:
+
 ```python
 import amelia
 
@@ -122,6 +126,8 @@ This endpoint sends a message to Amelia for a given conversation. The sessionId 
 
 ## Poll a conversation
 
+> Example Request:
+
 ```python
 import amelia
 
@@ -136,7 +142,7 @@ curl -kv --header 'Content-Type: application/json'
 
 This endpoint polls a conversation and returns data about a conversation. The sessionId can be obtained when starting a conversation with Amelia using the [start a new conversation endpoint](#start-a-new-conversation).
 
-> The above command returns a lot of data about a conversation in JSON:
+> Example Response:
 
 ```json
 {
@@ -832,6 +838,8 @@ This endpoint polls a conversation and returns data about a conversation. The se
 
 ## Get all domains
 
+> Example Request:
+
 ```python
 import amelia
 
@@ -843,7 +851,7 @@ curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/domains/"
 -H "X-Amelia-Rest-Token: token"
 ```
 
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {
@@ -871,6 +879,8 @@ Each id returned under content is a unique UUID to identify that domain.
 
 ## Get the intents by domain
 
+> Example Request:
+
 ```python
 import amelia
 
@@ -882,7 +892,7 @@ curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/training/intents/domai
 -H "X-Amelia-Rest-Token: token"
 ```
 
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {
@@ -908,6 +918,8 @@ The domainId to be passed in is not the domain name, but rather the UUID associa
 
 ## Get the details of a single intent
 
+> Example Request:
+
 ```python
 import amelia
 
@@ -919,7 +931,7 @@ curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/training/intents/inten
 -H "X-Amelia-Rest-Token: token"
 ```
 
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {
