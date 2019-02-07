@@ -68,7 +68,7 @@ You must replace <code>token</code> with your API key.
 
 ## Start a new conversation
 
-> POST /AmeliaRest/api/v1/conversations/new
+> <font size="4">POST /AmeliaRest/api/v1/conversations/new</font>
 
 > Example Request:
 
@@ -109,7 +109,7 @@ This endpoint starts a new conversation with Amelia.
 
 ## Send a message to Amelia
 
-> POST /AmeliaRest/api/v1/conversations/{sessionId}/send
+> <font size="4">POST /AmeliaRest/api/v1/conversations/{sessionId}/send</font>
 
 > Example Request:
 
@@ -132,7 +132,7 @@ This endpoint sends a message to Amelia for a given conversation. The sessionId 
 
 ## Poll a conversation
 
-> POST /AmeliaRest/api/v1/conversations/{sessionId}/poll
+> <font size="4">POST /AmeliaRest/api/v1/conversations/{sessionId}/poll</font>
 
 > Example Request:
 
@@ -846,7 +846,7 @@ This endpoint polls a conversation and returns data about a conversation. The se
 
 ## Get all domains
 
-> GET /AmeliaRest/api/v1/admin/domains/
+> <font size="4">GET /AmeliaRest/api/v1/admin/domains/</font>
 
 > Example Request:
 
@@ -889,7 +889,7 @@ Each id returned under content is a unique UUID to identify that domain.
 
 ## Get the intents by domain
 
-> GET /AmeliaRest/api/v1/admin/training/intents/domain/{domainId}/
+> <font size="4">GET /AmeliaRest/api/v1/admin/training/intents/domain/{domainId}/</font>
 
 > Example Request:
 
@@ -930,7 +930,7 @@ The domainId to be passed in is not the domain name, but rather the UUID associa
 
 ## Get the details of a single intent
 
-> GET /AmeliaRest/api/v1/admin/training/intents/{intentId}/
+> <font size="4">GET /AmeliaRest/api/v1/admin/training/intents/{intentId}/</font>
 
 > Example Request:
 
