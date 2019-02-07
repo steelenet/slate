@@ -906,6 +906,8 @@ The domainId to be passed in is not the domain name, but rather the UUID associa
 
 ```python
 import amelia
+
+amelia.intent().getIntent(url, token, intentId)
 ```
 
 ```shell
