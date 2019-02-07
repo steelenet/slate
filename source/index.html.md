@@ -20,7 +20,7 @@ The Amelia API can be used to poll Amelia for information, update BPNs, update u
 
 # Authentication
 
-> <h4>POST /AmeliaRest/api/v1/auth/login</h4>
+> <h1>POST /AmeliaRest/api/v1/auth/login</h1>
 
 > Example Request:
 
