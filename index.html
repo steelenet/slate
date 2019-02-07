@@ -346,17 +346,19 @@ You must replace <code>token</code> with your API key.
 -H <span class="s1">'X-Amelia-Rest-Token: token'</span>
 -d <span class="s1">'{"messageText":"some message to Amelia here"}'</span>
 </code></pre>
-<p>This endpoint sends a message to Amelia for a given conversation. The sessionId can be obtained when starting a conversation with Amelia using the <a href="#start-a-new-conversation">start a new conversation endpoint</a></p>
+<p>This endpoint sends a message to Amelia for a given conversation. The sessionId can be obtained when starting a conversation with Amelia using the <a href="#start-a-new-conversation">start a new conversation endpoint</a>.</p>
 
 <blockquote>
 <p>The above command, when successful, simply returns a 200 OK message.</p>
 </blockquote>
 <h2 id='poll-a-conversation'>Poll a conversation</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">Amelia</span>
+
+<span class="n">amelia</span><span class="o">.</span><span class="n">conversation</span><span class="p">()</span><span class="o">.</span><span class="n">poll</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">sessionId</span><span class="p">)</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -kv --header <span class="s1">'Content-Type: application/json'</span>
 -X POST <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/conversations/sessionId/poll"</span>
 -H <span class="s1">'X-Amelia-Rest-Token: token'</span>
 </code></pre>
-<p>This endpoint polls a conversation and returns data about a conversation.</p>
+<p>This endpoint polls a conversation and returns data about a conversation. The sessionId can be obtained when starting a conversation with Amelia using the <a href="#start-a-new-conversation">start a new conversation endpoint</a>.</p>
 
 <blockquote>
 <p>The above command returns a lot of data about a conversation in JSON:</p>
