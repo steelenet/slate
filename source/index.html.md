@@ -116,7 +116,7 @@ curl -kv --header 'Content-Type: application/json'
 -d '{"messageText":"some message to Amelia here"}'
 ```
 
-This endpoint sends a message to Amelia for a given conversation. The sessionId can be obtained when starting a conversation with Amelia using the [start a new conversation endpoint](#start-a-new-conversation)
+This endpoint sends a message to Amelia for a given conversation. The sessionId can be obtained when starting a conversation with Amelia using the [start a new conversation endpoint](#start-a-new-conversation).
 
 > The above command, when successful, simply returns a 200 OK message.
 
@@ -124,6 +124,8 @@ This endpoint sends a message to Amelia for a given conversation. The sessionId 
 
 ```python
 import Amelia
+
+amelia.conversation().poll(url, token, sessionId)
 ```
 
 ```shell
@@ -132,7 +134,7 @@ curl -kv --header 'Content-Type: application/json'
 -H 'X-Amelia-Rest-Token: token'
 ```
 
-This endpoint polls a conversation and returns data about a conversation.
+This endpoint polls a conversation and returns data about a conversation. The sessionId can be obtained when starting a conversation with Amelia using the [start a new conversation endpoint](#start-a-new-conversation).
 
 > The above command returns a lot of data about a conversation in JSON:
 
