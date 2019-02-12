@@ -68,7 +68,7 @@ You must replace <code>token</code> with your API key.
 
 ## Get authentication policies
 
-> <font size="4">POST /AmeliaRest/api/v1/admin/system/authenticationPolicies/</font>
+> <font size="4">GET /AmeliaRest/api/v1/admin/system/authenticationPolicies/</font>
 
 > Example Request:
 
