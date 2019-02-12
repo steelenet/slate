@@ -64,6 +64,63 @@ Once a token has been issued, Amelia for the API key to be included in all API r
 You must replace <code>token</code> with your API key.
 </aside>
 
+# Authentication Policies
+
+## Get authentication policies
+
+> <font size="4">POST /AmeliaRest/api/v1/admin/system/authenticationPolicies/</font>
+
+> Example Request:
+
+```python
+import amelia
+```
+
+```shell
+curl -vk "https://ipsoft-v3-amelia-playgroundus.ipsoft.com/AmeliaRest/api/v1/admin/system/authenticationPolicies/" -H "X-Amelia-Rest-Token: 29fe1ed8-d246-4b75-84ec-4e419a90b5ed"
+```
+
+> Example Response:
+
+```json
+{
+	"first": true,
+	"last": true,
+	"totalElements": 4,
+	"totalPages": 1,
+	"content": [{
+		"id": "0d3c73d3-3410-4ef0-9c85-154304ld0293",
+		"name": "IPsoft ADFS",
+		"authenticationSystemName": "ipsoft_adfs",
+		"passwordChangedAllowed": false
+	}, {
+		"id": "1a29f2aa-97e8-4ec2-a887-2f73c5ld932",
+		"name": "Default User Authentication Policy",
+		"authenticationSystemName": "Internal",
+		"passwordChangedAllowed": true
+	}, {
+		"id": "ca58a003-00a2-4831-8e31-45b6316asdf2",
+		"name": "IPsoft LDAP Authentication Policy",
+		"authenticationSystemName": "IPsoft LDAP",
+		"passwordChangedAllowed": false
+	}, {
+		"id": "e83002be-ab6e-4505-93d3-debcd29qw231",
+		"name": "System User Authentication Policy",
+		"authenticationSystemName": "Deny All",
+		"passwordChangedAllowed": false
+	}]
+}
+```
+
+Returns a list of authentication policies that a given Amelia instance has available.
+
+### Optional URL parameters
+
+* name = Name of the policy to search for
+* page = Page of the results to return
+* size = Number of results to return
+* sort = * sort = A list of {field}, {dir} directives. Dir can either be asc or desc.
+
 # Conversation
 
 ## Start a new conversation
