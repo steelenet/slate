@@ -1192,3 +1192,96 @@ curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/training/intents/intentId/
 ```
 
 The intentId can be obtained from the [get intents endpoint](#get-the-intents-by-domain).
+
+# Subsystem Responder
+
+> <font size="4">GET /AmeliaRest/api/v1/admin/subsystemresponders/</font>
+
+> Example Request:
+
+```python
+import amelia
+```
+
+```shell
+curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/subsystemresponders/"
+-H "X-Amelia-Rest-Token: token"
+```
+
+> Example Response:
+
+```json
+{
+	"first": true,
+	"last": true,
+	"totalElements": 16,
+	"totalPages": 1,
+	"content": [{
+		"id": "43239a8b-e08f-11e7-9ae8-00505696a26e",
+		"name": "AcknowledgeDefault",
+		"email": null
+	}, {
+		"id": "4323b2d5-e08f-11e7-9ae8-00505696a26e",
+		"name": "Bpn",
+		"email": null
+	}, {
+		"id": "4323cf60-e08f-11e7-9ae8-00505696a26e",
+		"name": "DontKnow",
+		"email": null
+	}, {
+		"id": "4323e350-e08f-11e7-9ae8-00505696a26e",
+		"name": "Escalate",
+		"email": null
+	}, {
+		"id": "4323f5d3-e08f-11e7-9ae8-00505696a26e",
+		"name": "Affective",
+		"email": null
+	}, {
+		"id": "43240947-e08f-11e7-9ae8-00505696a26e",
+		"name": "Semnet",
+		"email": null
+	}, {
+		"id": "43241f5a-e08f-11e7-9ae8-00505696a26e",
+		"name": "EpisodicMemory",
+		"email": null
+	}, {
+		"id": "43243603-e08f-11e7-9ae8-00505696a26e",
+		"name": "FAQ",
+		"email": null
+	}, {
+		"id": "43244ad8-e08f-11e7-9ae8-00505696a26e",
+		"name": "SocialTalk",
+		"email": null
+	}, {
+		"id": "43246024-e08f-11e7-9ae8-00505696a26e",
+		"name": "LogicNet",
+		"email": null
+	}, {
+		"id": "432473e8-e08f-11e7-9ae8-00505696a26e",
+		"name": "AIML",
+		"email": null
+	}, {
+		"id": "432487ad-e08f-11e7-9ae8-00505696a26e",
+		"name": "SemnetDoc",
+		"email": null
+	}, {
+		"id": "56dac960-d0c9-11e8-9875-00505696a26e",
+		"name": "UnknownProblem",
+		"email": null
+	}, {
+		"id": "a998cf63-7b2b-11e8-9ae8-00505696a26e",
+		"name": "EQA",
+		"email": null
+	}, {
+		"id": "a9a4f855-7b2b-11e8-9ae8-00505696a26e",
+		"name": "Cqa",
+		"email": null
+	}, {
+		"id": "b1c014b0-1da0-11e8-9ae8-00505696a26e",
+		"name": "IntentFAQ",
+		"email": null
+	}]
+}
+```
+
+Returns a list of the subsystems in Amelia.
