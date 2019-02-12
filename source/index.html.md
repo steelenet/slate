@@ -916,20 +916,31 @@ curl here
 * allowConversations = Allow users to have conversations with Amelia. Takes bool true/false value.
 * ameliaUserId = The name you would like to give to Amelia.
 * anonymizeTranscriptUser = Strip away user information from transcripts. Takes a bool true/false value.
-* anonymousFirstNameOverride = 
-* anonymousUserLastNameOverride = 
+* anonymousFirstNameOverride = Replaces the first name in transcripts with a string.
+* anonymousUserLastNameOverride = Replaces the last name in transcripts with a string.
 * authenticationPolicyId = Selects an authentication policy. Use the [get authentication policies endpoint](#get-all-authentication-policies) to get the authenticationPolicyId.
 * avatarVoice = Selects a voice for Amelia. "VW Julie" is the default. See [voice avatars](#voice-avatars) to get a full list of available voices.
 * conversationSummaryCleanupDaysRetained = Define how long in days chat transcripts are retained.
 * defaultEscalationQueueId = Define to which queue escalations are sent. Use the [get escalation queues endpoint](#get-all-escalation-queues) to find the queue ID value.
 * greetingBpnId = The BPN that first runs when a user enters the domain.
-* id = 
+* id = Set this value to null and an ID will be generated.
 * imageEnabled = Decide if an image avatar is going to be displayed. Takes a bool true/false value. Only affects mind view Amelia, not custom UI or integrated UI.
 * localeTag = Choose the localization for Amelia. Defaults to a variety of English options. Other options available with optional language packs. See [locale options](#locale-options).
 * parentId = Name of the parent domain, if one exists.
 * preCloseBpnId = The BPN that runs just before a conversation ends.
 * preEscalationBpnId = The BPN that runs just before a conversation is escalated.
 * subsystemResponderIds = The various [subsystems](#subsystem-responders) to be enabled on a domain.
+* timeZoneId = The time zone the domain will operate in.
+* transcriptContentMasks = Defines content in transcript that you would like to be masked and replaced.
+  * id = Set this value to null and an ID will be generated.
+  * match = The string to match on.
+  * replace = What to replace the matched string with.
+* userTranslationEnabled = Defines if the user's utterances will be translated from other languages. Takes a bool true/false value.
+* webGlEnabled = Defines if the 3D Amelia avatar should be enabled. Only affects mind view Amelia, not custom UI or integrated UI. Takes a bool true/false value.
+* code = The ID, by which a domain is referred to.
+* name = A user friendly reference given to a domain.
+* enabled = Defines if a domain is enabled or disabled. Takes a bool true/false value.
+* hidden = Defines if a domain is hidden or visible. Takes a bool true/false value.
 
 ### Locale Options
 
