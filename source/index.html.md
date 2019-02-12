@@ -77,7 +77,8 @@ import amelia
 ```
 
 ```shell
-curl -vk "https://ipsoft-v3-amelia-playgroundus.ipsoft.com/AmeliaRest/api/v1/admin/system/authenticationPolicies/" -H "X-Amelia-Rest-Token: 29fe1ed8-d246-4b75-84ec-4e419a90b5ed"
+curl -vk "https://ipsoft-v3-amelia-playgroundus.ipsoft.com/AmeliaRest/api/v1/admin/system/authenticationPolicies/"
+-H "X-Amelia-Rest-Token: token"
 ```
 
 > Example Response:
@@ -1050,6 +1051,63 @@ Amelia support a variety of languages with the appropriate packs installed. Amer
 * Romanian = Carmen
 * Icelandic = Dóra
 * Welsh = Gwyneth
+
+# Escalation Queues
+
+## Get escalation queues
+
+> <font size="4">GET /AmeliaRest/api/v1/admin/system/escalationqueues</font>
+
+> Example Request:
+
+```python
+import amelia
+```
+
+```shell
+curl -vk "https://ipsoft-v3-amelia-playgroundus.ipsoft.com/AmeliaRest/api/v1/admin/system/escalationqueues"
+-H "X-Amelia-Rest-Token: token"
+```
+
+> Example Response:
+
+```json
+{
+	"first": true,
+	"last": true,
+	"totalElements": 3,
+	"totalPages": 1,
+	"content": [{
+		"id": "03bf3fe7-667f-47ac-aee4-5ceb92ed8bf4",
+		"name": "Test Queue",
+		"domainId": "d2d42a2f-c238-4d2f-8ce2-9740b5849724",
+		"domainName": "test",
+		"enabled": true
+	}, {
+		"id": "e7f6c769-5b5a-4408-838f-1b25bf7ab9d8",
+		"name": "ipsoft queue",
+		"domainId": "ad577704-4d40-4c47-85fd-f5f417163c2e",
+		"domainName": "ipsoft",
+		"enabled": true
+	}, {
+		"id": "fe3413cd-25e9-4c8b-be04-dd3087e546bd",
+		"name": "escalate test",
+		"domainId": "c7f87ec6-5f41-4cec-a988-82b86013a440",
+		"domainName": "escalate",
+		"enabled": true
+	}]
+}
+```
+
+Returns a list of escalation queues available within a given Amelia instance.
+
+### Optional URL parameters
+
+* domainId = The ID of a given domain
+* search = Search for a queue by name
+* page = Page of the results to return
+* size = Number of results to return
+* sort = * sort = A list of {field}, {dir} directives. Dir can either be asc or desc.
 
 # Intents
 
