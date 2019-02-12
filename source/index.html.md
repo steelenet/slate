@@ -923,6 +923,42 @@ curl here
 * conversationSummaryCleanupDaysRetained = Define how long in days chat transcripts are retained.
 * defaultEscalationQueueId = Define to which queue escalations are sent. Use the [get escalation queues endpoint](#get-all-escalation-queues) to find the queue ID value.
 * greetingBpnId = The BPN that first runs when a user enters the domain.
+* id = 
+* imageEnabled = Decide if an image avatar is going to be displayed. Takes a bool true/false value. Only affects mind view Amelia, not custom UI or integrated UI.
+* localeTag = Choose the localization for Amelia. Defaults to a variety of English options. Other options available with optional language packs. See [locale options](#locale-options).
+* parentId = Name of the parent domain, if one exists.
+* preCloseBpnId = The BPN that runs just before a conversation ends.
+* preEscalationBpnId = The BPN that runs just before a conversation is escalated.
+* subsystemResponderIds = The various [subsystems](#subsystem-responders) to be enabled on a domain.
+
+### Locale Options
+
+* English (Australia)
+* English (Canada)
+* English (New Zealand)
+* English (United Kingdom)
+* English (United States)
+
+### Subsystem Responders
+
+Amelia has a variety of subsystems that can be enabled or disabled. Enabling or disabling these subsystems can change how Amelia behaves and responds to users. By default, recommend enabling all subsystems unless otherwise noted.
+
+* AcknowledgeDefault = Last resort responder for declarative statements.
+* Affective = Amelia's humanization module. Includes a knowledge base of her responses, nonverbal behaviors (avatar), social talk grammars, and stop words.
+* AIML = Artifical Intelligence Modelling Language. XML-based markup language to give Amelia a corpus of information.
+* Bpn = If a business process needs to be launched, this subsystem will respond.
+* Cqa = Clarifying Question & Answer. Amelia's disambiguation module. If multiple intents are too close in score, Amelia will ask the user to clarify which intent was intended.
+* DontKnow = If Amelia is unable to classify an utterance, the DontKnow subsystem will respond.
+* EpisodicMemory = Allows Amelia to remember information from past conversations to better follow processes in the future.
+* EQA = Generates a qualifying respone if a user gives an incomplete utterance.
+* Escalate = Allows Amelia to escalate a conversation if needed.
+* FAQ = Provides quick responses to user questions from Semnet.
+* IntentFAQ = Similar to the FAQ module, but uses intents instead.
+* LogicNet = Gives Amelia the ability to answer questions based on inference. Can be disabled by default.
+* Semnet = Provides answers to a conversation out of context. Can be disabled by default.
+* SemnetDoc = Provides answers from documents uploaded to Amelia.
+* SocialTalk = Similar to AIML, but based on grammars instead of XML.
+* UnknownProblem = Responds when the user intent is not recongized by the intent classifier.
 
 ### Voice Avatars
 
