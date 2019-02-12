@@ -226,6 +226,14 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
+            <a href="#authentication-policies" class="toc-h1 toc-link" data-title="Authentication Policies">Authentication Policies</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-authentication-policies" class="toc-h2 toc-link" data-title="Get authentication policies">Get authentication policies</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#conversation" class="toc-h1 toc-link" data-title="Conversation">Conversation</a>
               <ul class="toc-list-h2">
                   <li>
@@ -244,6 +252,17 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#get-all-domains" class="toc-h2 toc-link" data-title="Get all domains">Get all domains</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-domain" class="toc-h2 toc-link" data-title="Create a Domain">Create a Domain</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#escalation-queues" class="toc-h1 toc-link" data-title="Escalation Queues">Escalation Queues</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-escalation-queues" class="toc-h2 toc-link" data-title="Get escalation queues">Get escalation queues</a>
                   </li>
               </ul>
           </li>
@@ -310,6 +329,55 @@ curl -vk -X POST <span class="s2">"https://amelia_url_here/AmeliaRest/api/v1/aut
 <aside class="notice">
 You must replace <code>token</code> with your API key.
 </aside>
+<h1 id='authentication-policies'>Authentication Policies</h1><h2 id='get-authentication-policies'>Get authentication policies</h2>
+<blockquote>
+<p><font size="4">POST /AmeliaRest/api/v1/admin/system/authenticationPolicies/</font></p>
+
+<p>Example Request:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">amelia</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -vk <span class="s2">"https://ipsoft-v3-amelia-playgroundus.ipsoft.com/AmeliaRest/api/v1/admin/system/authenticationPolicies/"</span>
+-H <span class="s2">"X-Amelia-Rest-Token: token"</span>
+</code></pre>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"totalElements"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d3c73d3-3410-4ef0-9c85-154304ld0293"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IPsoft ADFS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"authenticationSystemName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ipsoft_adfs"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"passwordChangedAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1a29f2aa-97e8-4ec2-a887-2f73c5ld932"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default User Authentication Policy"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"authenticationSystemName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"passwordChangedAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ca58a003-00a2-4831-8e31-45b6316asdf2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IPsoft LDAP Authentication Policy"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"authenticationSystemName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IPsoft LDAP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"passwordChangedAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e83002be-ab6e-4505-93d3-debcd29qw231"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"System User Authentication Policy"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"authenticationSystemName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deny All"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"passwordChangedAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns a list of authentication policies that a given Amelia instance has available.</p>
+<h3 id='optional-url-parameters'>Optional URL parameters</h3>
+<ul>
+<li>name = Name of the policy to search for</li>
+<li>page = Page of the results to return</li>
+<li>size = Number of results to return</li>
+<li>sort = A list of {field}, {dir} directives. Dir can either be asc or desc.</li>
+</ul>
 <h1 id='conversation'>Conversation</h1><h2 id='start-a-new-conversation'>Start a new conversation</h2>
 <blockquote>
 <p><font size="4">POST /AmeliaRest/api/v1/conversations/new</font></p>
@@ -1105,7 +1173,7 @@ You must replace <code>token</code> with your API key.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Each id returned under content is a unique UUID to identify that domain.</p>
-<h3 id='optional-url-parameters'>Optional URL parameters</h3>
+<h3 id='optional-url-parameters-2'>Optional URL parameters</h3>
 <ul>
 <li>name = The name of the domain</li>
 <li>code = The code of the domain</li>
@@ -1113,6 +1181,151 @@ You must replace <code>token</code> with your API key.
 <li>page = The page result to return</li>
 <li>size = The number of results to return</li>
 <li>sort = A list of {field}, {dir} directives. Dir can either be asc or desc.</li>
+</ul>
+<h2 id='create-a-domain'>Create a Domain</h2>
+<blockquote>
+<p><font size="4">POST /AmeliaRest/api/v1/admin/domains/</font></p>
+
+<p>Example Request:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">amelia</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl here
+</code></pre><h3 id='json-parameters'>JSON Parameters</h3>
+<ul>
+<li>agentTranslationEnabled = Translation service to translate what an agent says in one language back to the user. Not currently available. Set to false.</li>
+<li>allowAnonymousUsers = Allow non-authenticated users to interact with Amelia. Takes a bool true/false value.</li>
+<li>allowAnonymousView = Allow non-authenticated users to see a domain exists, but not allow them access to that domain. Takes a bool true/false value.</li>
+<li>allowConversations = Allow users to have conversations with Amelia. Takes bool true/false value.</li>
+<li>ameliaUserId = The name you would like to give to Amelia.</li>
+<li>anonymizeTranscriptUser = Strip away user information from transcripts. Takes a bool true/false value.</li>
+<li>anonymousFirstNameOverride = Replaces the first name in transcripts with a string.</li>
+<li>anonymousUserLastNameOverride = Replaces the last name in transcripts with a string.</li>
+<li>authenticationPolicyId = Selects an authentication policy. Use the <a href="#get-authentication-policies">get authentication policies endpoint</a> to get the authenticationPolicyId.</li>
+<li>avatarVoice = Selects a voice for Amelia. &quot;VW Julie&quot; is the default. See <a href="#voice-avatars">voice avatars</a> to get a full list of available voices.</li>
+<li>conversationSummaryCleanupDaysRetained = Define how long in days chat transcripts are retained.</li>
+<li>defaultEscalationQueueId = Define to which queue escalations are sent. Use the <a href="#get-escalation-queues">get escalation queues endpoint</a> to find the queue ID value.</li>
+<li>greetingBpnId = The BPN that first runs when a user enters the domain.</li>
+<li>id = Set this value to null and an ID will be generated.</li>
+<li>imageEnabled = Decide if an image avatar is going to be displayed. Takes a bool true/false value. Only affects mind view Amelia, not custom UI or integrated UI.</li>
+<li>localeTag = Choose the localization for Amelia. Defaults to a variety of English options. Other options available with optional language packs. See <a href="#locale-options">locale options</a>.</li>
+<li>parentId = Name of the parent domain, if one exists.</li>
+<li>preCloseBpnId = The BPN that runs just before a conversation ends.</li>
+<li>preEscalationBpnId = The BPN that runs just before a conversation is escalated.</li>
+<li>subsystemResponderIds = The various <a href="#subsystem-responders">subsystems</a> to be enabled on a domain.</li>
+<li>timeZoneId = The time zone the domain will operate in.</li>
+<li>transcriptContentMasks = Defines content in transcript that you would like to be masked and replaced.
+
+<ul>
+<li>id = Set this value to null and an ID will be generated.</li>
+<li>match = The string to match on.</li>
+<li>replace = What to replace the matched string with.</li>
+</ul></li>
+<li>userTranslationEnabled = Defines if the user&#39;s utterances will be translated from other languages. Takes a bool true/false value.</li>
+<li>webGlEnabled = Defines if the 3D Amelia avatar should be enabled. Only affects mind view Amelia, not custom UI or integrated UI. Takes a bool true/false value.</li>
+<li>code = The ID, by which a domain is referred to.</li>
+<li>name = A user friendly reference given to a domain.</li>
+<li>enabled = Defines if a domain is enabled or disabled. Takes a bool true/false value.</li>
+<li>hidden = Defines if a domain is hidden or visible. Takes a bool true/false value.</li>
+</ul>
+<h3 id='locale-options'>Locale Options</h3>
+<ul>
+<li>English (Australia)</li>
+<li>English (Canada)</li>
+<li>English (New Zealand)</li>
+<li>English (United Kingdom)</li>
+<li>English (United States)</li>
+</ul>
+<h3 id='subsystem-responders'>Subsystem Responders</h3>
+<p>Amelia has a variety of subsystems that can be enabled or disabled. Enabling or disabling these subsystems can change how Amelia behaves and responds to users. By default, recommend enabling all subsystems unless otherwise noted.</p>
+
+<ul>
+<li>AcknowledgeDefault = Last resort responder for declarative statements.</li>
+<li>Affective = Amelia&#39;s humanization module. Includes a knowledge base of her responses, nonverbal behaviors (avatar), social talk grammars, and stop words.</li>
+<li>AIML = Artifical Intelligence Modelling Language. XML-based markup language to give Amelia a corpus of information.</li>
+<li>Bpn = If a business process needs to be launched, this subsystem will respond.</li>
+<li>Cqa = Clarifying Question &amp; Answer. Amelia&#39;s disambiguation module. If multiple intents are too close in score, Amelia will ask the user to clarify which intent was intended.</li>
+<li>DontKnow = If Amelia is unable to classify an utterance, the DontKnow subsystem will respond.</li>
+<li>EpisodicMemory = Allows Amelia to remember information from past conversations to better follow processes in the future.</li>
+<li>EQA = Generates a qualifying respone if a user gives an incomplete utterance.</li>
+<li>Escalate = Allows Amelia to escalate a conversation if needed.</li>
+<li>FAQ = Provides quick responses to user questions from Semnet.</li>
+<li>IntentFAQ = Similar to the FAQ module, but uses intents instead.</li>
+<li>LogicNet = Gives Amelia the ability to answer questions based on inference. Can be disabled by default.</li>
+<li>Semnet = Provides answers to a conversation out of context. Can be disabled by default.</li>
+<li>SemnetDoc = Provides answers from documents uploaded to Amelia.</li>
+<li>SocialTalk = Similar to AIML, but based on grammars instead of XML.</li>
+<li>UnknownProblem = Responds when the user intent is not recongized by the intent classifier.</li>
+</ul>
+<h3 id='voice-avatars'>Voice Avatars</h3>
+<p>Amelia support a variety of languages with the appropriate packs installed. American English (VW Julie) is installed by default. When setting avatarVoice, use one of the following values:</p>
+
+<ul>
+<li>English (American) = VW Julie</li>
+<li>French = Céline</li>
+<li>French Canadian = Chantal</li>
+<li>Swedish = Astrid (US) or Maja (EU)</li>
+<li>Norwegian = Liv</li>
+<li>Spanish (American) = Penélope</li>
+<li>Spanish (Castilian) = Conchita</li>
+<li>Danish = Naja</li>
+<li>Russian = Tatyana</li>
+<li>Dutch = Lotte</li>
+<li>Italian = Carla</li>
+<li>Turkish = Filiz</li>
+<li>Polish = Maja</li>
+<li>Portuguese = Vitória</li>
+<li>German = Marlene</li>
+<li>Romanian = Carmen</li>
+<li>Icelandic = Dóra</li>
+<li>Welsh = Gwyneth</li>
+</ul>
+<h1 id='escalation-queues'>Escalation Queues</h1><h2 id='get-escalation-queues'>Get escalation queues</h2>
+<blockquote>
+<p><font size="4">GET /AmeliaRest/api/v1/admin/system/escalationqueues</font></p>
+
+<p>Example Request:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">amelia</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -vk <span class="s2">"https://ipsoft-v3-amelia-playgroundus.ipsoft.com/AmeliaRest/api/v1/admin/system/escalationqueues"</span>
+-H <span class="s2">"X-Amelia-Rest-Token: token"</span>
+</code></pre>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"totalElements"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03bf3fe7-667f-47ac-aee4-5ceb92ed8bf4"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Queue"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"domainId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d2d42a2f-c238-4d2f-8ce2-9740b5849724"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"domainName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e7f6c769-5b5a-4408-838f-1b25bf7ab9d8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ipsoft queue"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"domainId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad577704-4d40-4c47-85fd-f5f417163c2e"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"domainName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ipsoft"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fe3413cd-25e9-4c8b-be04-dd3087e546bd"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"escalate test"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"domainId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c7f87ec6-5f41-4cec-a988-82b86013a440"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"domainName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"escalate"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns a list of escalation queues available within a given Amelia instance.</p>
+<h3 id='optional-url-parameters-3'>Optional URL parameters</h3>
+<ul>
+<li>domainId = The ID of a given domain</li>
+<li>search = Search for a queue by name</li>
+<li>page = Page of the results to return</li>
+<li>size = Number of results to return</li>
+<li>sort = * sort = A list of {field}, {dir} directives. Dir can either be asc or desc.</li>
 </ul>
 <h1 id='intents'>Intents</h1><h2 id='get-the-intents-by-domain'>Get the intents by domain</h2>
 <blockquote>
