@@ -120,7 +120,7 @@ Returns a list of authentication policies that a given Amelia instance has avail
 * name = Name of the policy to search for
 * page = Page of the results to return
 * size = Number of results to return
-* sort = * sort = A list of {field}, {dir} directives. Dir can either be asc or desc.
+* sort = A list of {field}, {dir} directives. Dir can either be asc or desc.
 
 # Conversation
 
