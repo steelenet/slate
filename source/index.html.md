@@ -894,6 +894,56 @@ Each id returned under content is a unique UUID to identify that domain.
 * size = The number of results to return
 * sort = A list of {field}, {dir} directives. Dir can either be asc or desc.
 
+## Create a Domain
+
+> <font size="4">POST /AmeliaRest/api/v1/admin/domains/</font>
+
+> Example Request:
+
+```python
+import amelia
+```
+
+```shell
+curl here
+```
+
+### JSON Parameters
+
+* agentTranslationEnabled = Translation service to translate what an agent says in one language back to the user. Not currently available. Set to false.
+* allowAnonymousUsers = Allow non-authenticated users to interact with Amelia. Takes a bool true/false value.
+* allowAnonymousView = Allow non-authenticated users to see a domain exists, but not allow them access to that domain. Takes a bool true/false value.
+* allowConversations = Allow users to have conversations with Amelia. Takes bool true/false value.
+* ameliaUserId = The name you would like to give to Amelia.
+* anonymizeTranscriptUser = Strip away user information from transcripts. Takes a bool true/false value.
+* anonymousFirstNameOverride = 
+* anonymousUserLastNameOverride = 
+* authenticationPolicyId = Selects an authentication policy. Use the [get authentication policies endpoint](#get-all-authentication-policies) to get the authenticationPolicyId.
+* avatarVoice = Selects a voice for Amelia. Use "VW Julie" as the value unless another voice pack has been installed.
+
+### Voice Avatars
+
+Amelia support a variety of languages with the appropriate packs installed. When setting avatarVoice, use the following values:
+
+* English (American) = VW Julie
+* French = Céline
+* French Canadian = Chantal
+* Swedish = Astrid (US) or Maja (EU)
+* Norwegian = Liv
+* Spanish (American) = Penélope
+* Spanish (Castilian) = Conchita
+* Danish = Naja
+* Russian = Tatyana
+* Dutch = Lotte
+* Italian = Carla
+* Turkish = Filiz
+* Polish = Maja
+* Portuguese = Vitória
+* German = Marlene
+* Romanian = Carmen
+* Icelandic = Dóra
+* Welsh = Gwyneth
+
 # Intents
 
 ## Get the intents by domain
