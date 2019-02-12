@@ -1195,6 +1195,8 @@ The intentId can be obtained from the [get intents endpoint](#get-the-intents-by
 
 # Subsystem Responder
 
+## Get subsystem responders
+
 > <font size="4">GET /AmeliaRest/api/v1/admin/subsystemresponders/</font>
 
 > Example Request:
