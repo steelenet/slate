@@ -32,9 +32,9 @@ amelia.authentication().login(url, username, password)
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl -vk -X POST "https://amelia_url_here/AmeliaRest/api/v1/auth/login"
+curl -vk -X POST "https://{ameliaUrl}/AmeliaRest/api/v1/auth/login"
   -H "Content-Type:application/json"
-  -d '{"ameliaUrl":amelia_url_here/Amelia,"username":username,"password":password}'
+  -d '{"ameliaUrl":{ameliaUrl}/Amelia,"username":username,"password":password}'
 ```
 
 > Example Response:
@@ -77,7 +77,7 @@ import amelia
 ```
 
 ```shell
-curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/system/authenticationPolicies/"
+curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/system/authenticationPolicies/"
 -H "X-Amelia-Rest-Token: token"
 ```
 
@@ -137,7 +137,7 @@ amelia.conversation().new(url, token, domain, deliveryMode, debugMode, webhookUr
 ```
 
 ```shell
-curl -vk -X POST  "https://amelia_url_here/AmeliaRest/api/v1/conversations/new"
+curl -vk -X POST  "https://{ameliaUrl}/AmeliaRest/api/v1/conversations/new"
 -H "X-Amelia-Rest-Token:token"
 -H "Content-Type:application/json"
 -d '{"domain":domain,"deliveryMode":"POLLING","receiveDebugMessages":"false"}'
@@ -179,7 +179,7 @@ amelia.conversation().sendMessage(url, token, sessionId, message)
 
 ```shell
 curl -kv --header 'Content-Type: application/json'
--X POST "https://amelia_url_here/AmeliaRest/api/v1/conversations/sessionId/send"
+-X POST "https://{ameliaUrl}/AmeliaRest/api/v1/conversations/sessionId/send"
 -H 'X-Amelia-Rest-Token: token'
 -d '{"messageText":"some message to Amelia here"}'
 ```
@@ -202,7 +202,7 @@ amelia.conversation().poll(url, token, sessionId)
 
 ```shell
 curl -kv --header 'Content-Type: application/json'
--X POST "https://amelia_url_here/AmeliaRest/api/v1/conversations/sessionId/poll"
+-X POST "https://{ameliaUrl}/AmeliaRest/api/v1/conversations/sessionId/poll"
 -H 'X-Amelia-Rest-Token: token'
 ```
 
@@ -477,7 +477,7 @@ This endpoint polls a conversation and returns data about a conversation. The se
 			"X-Amelia-Timestamp": "1549406402307",
 			"X-Amelia-Session-Mode": "USER",
 			"X-Amelia-Source-User-Type": "Amelia",
-			"X-Amel* Connection #0 to host amelia_url_here[{
+			"X-Amel* Connection #0 to host {ameliaUrl}[{
 		"messageId": "7e4a4698-9f8e-408d-aba8-deb2368c31b6",
 		"headers": {
 			"X-Amelia-Conversation-Id": "LIX7HSR7YAIAA-1",
@@ -743,7 +743,7 @@ This endpoint polls a conversation and returns data about a conversation. The se
 			"X-Amelia-Timestamp": "1549406402307",
 			"X-Amelia-Session-Mode": "USER",
 			"X-Amelia-Source-User-Type": "Amelia",
-			"X-Amel* Connection #0 to host amelia_url_here left intact
+			"X-Amel* Connection #0 to host {ameliaUrl} left intact
 			ia - Message - Type ":"
 			OutboundBmlStatusMessage "},"
 			messageText ":null,"
@@ -915,7 +915,7 @@ amelia.domain().getAll(url, token)
 ```
 
 ```shell
-curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/domains/"
+curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/domains/"
 -H "X-Amelia-Rest-Token: token"
 ```
 
@@ -1065,7 +1065,7 @@ import amelia
 ```
 
 ```shell
-curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/system/escalationqueues"
+curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/system/escalationqueues"
 -H "X-Amelia-Rest-Token: token"
 ```
 
@@ -1124,7 +1124,7 @@ amelia.intent().getAll(url, token, domainId)
 ```
 
 ```shell
-curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/training/intents/domain/domainId/"
+curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/training/intents/domain/domainId/"
 -H "X-Amelia-Rest-Token: token"
 ```
 
@@ -1165,7 +1165,7 @@ amelia.intent().getIntent(url, token, intentId)
 ```
 
 ```shell
-curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/training/intents/intentId/"
+curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/training/intents/intentId/"
 -H "X-Amelia-Rest-Token: token"
 ```
 
