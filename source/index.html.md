@@ -919,11 +919,14 @@ curl here
 * anonymousFirstNameOverride = 
 * anonymousUserLastNameOverride = 
 * authenticationPolicyId = Selects an authentication policy. Use the [get authentication policies endpoint](#get-all-authentication-policies) to get the authenticationPolicyId.
-* avatarVoice = Selects a voice for Amelia. Use "VW Julie" as the value unless another voice pack has been installed.
+* avatarVoice = Selects a voice for Amelia. "VW Julie" is the default. See [voice avatars](#voice-avatars) to get a full list of available voices.
+* conversationSummaryCleanupDaysRetained = Define how long in days chat transcripts are retained.
+* defaultEscalationQueueId = Define to which queue escalations are sent. Use the [get escalation queues endpoint](#get-all-escalation-queues) to find the queue ID value.
+* greetingBpnId = The BPN that first runs when a user enters the domain.
 
 ### Voice Avatars
 
-Amelia support a variety of languages with the appropriate packs installed. When setting avatarVoice, use the following values:
+Amelia support a variety of languages with the appropriate packs installed. American English (VW Julie) is installed by default. When setting avatarVoice, use one of the following values:
 
 * English (American) = VW Julie
 * French = Céline
