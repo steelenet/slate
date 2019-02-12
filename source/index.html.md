@@ -77,7 +77,7 @@ import amelia
 ```
 
 ```shell
-curl -vk "https://ipsoft-v3-amelia-playgroundus.ipsoft.com/AmeliaRest/api/v1/admin/system/authenticationPolicies/"
+curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/system/authenticationPolicies/"
 -H "X-Amelia-Rest-Token: token"
 ```
 
@@ -1065,7 +1065,7 @@ import amelia
 ```
 
 ```shell
-curl -vk "https://ipsoft-v3-amelia-playgroundus.ipsoft.com/AmeliaRest/api/v1/admin/system/escalationqueues"
+curl -vk "https://amelia_url_here/AmeliaRest/api/v1/admin/system/escalationqueues"
 -H "X-Amelia-Rest-Token: token"
 ```
 
