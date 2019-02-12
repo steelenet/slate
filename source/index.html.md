@@ -979,7 +979,7 @@ curl here
 * authenticationPolicyId = Selects an authentication policy. Use the [get authentication policies endpoint](#get-all-authentication-policies) to get the authenticationPolicyId.
 * avatarVoice = Selects a voice for Amelia. "VW Julie" is the default. See [voice avatars](#voice-avatars) to get a full list of available voices.
 * conversationSummaryCleanupDaysRetained = Define how long in days chat transcripts are retained.
-* defaultEscalationQueueId = Define to which queue escalations are sent. Use the [get escalation queues endpoint](#get-all-escalation-queues) to find the queue ID value.
+* defaultEscalationQueueId = Define to which queue escalations are sent. Use the [get escalation queues endpoint](#get-escalation-queues) to find the queue ID value.
 * greetingBpnId = The BPN that first runs when a user enters the domain.
 * id = Set this value to null and an ID will be generated.
 * imageEnabled = Decide if an image avatar is going to be displayed. Takes a bool true/false value. Only affects mind view Amelia, not custom UI or integrated UI.
