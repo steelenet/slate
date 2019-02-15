@@ -310,7 +310,7 @@
 </code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl -vk -X POST <span class="s2">"https://{ameliaUrl}/AmeliaRest/api/v1/auth/login"</span>
   -H <span class="s2">"Content-Type:application/json"</span>
-  -d <span class="s1">'{"ameliaUrl":{ameliaUrl}/Amelia,"username":username,"password":password}'</span>
+  -d <span class="s1">'{"ameliaUrl"}:{ameliaUrl}/Amelia,"username":username,"password":password'</span>
 </code></pre>
 <blockquote>
 <p>Example Response:</p>
@@ -380,12 +380,34 @@ You must replace <code>token</code> with your API key.
 </span></code></pre>
 <p>Returns a list of authentication policies that a given Amelia instance has available.</p>
 <h3 id='optional-url-parameters'>Optional URL parameters</h3>
-<ul>
-<li>name = Name of the policy to search for</li>
-<li>page = Page of the results to return</li>
-<li>size = Number of results to return</li>
-<li>sort = A list of {field}, {dir} directives. Dir can either be asc or desc.</li>
-</ul>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: center">Description</th>
+<th style="text-align: right">Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td style="text-align: center">Name of the policy to search for</td>
+<td style="text-align: right">string</td>
+</tr>
+<tr>
+<td>page</td>
+<td style="text-align: center">Page of the results to return</td>
+<td style="text-align: right">int</td>
+</tr>
+<tr>
+<td>size</td>
+<td style="text-align: center">Number of results to return</td>
+<td style="text-align: right">int</td>
+</tr>
+<tr>
+<td>sort</td>
+<td style="text-align: center">A list of {field}, {dir} directives. Dir can either be asc or desc</td>
+<td style="text-align: right">array[string]</td>
+</tr>
+</tbody></table>
 <h1 id='conversation'>Conversation</h1><h2 id='start-a-new-conversation'>Start a new conversation</h2>
 <blockquote>
 <p><font size="4">POST /AmeliaRest/api/v1/conversations/new</font></p>
