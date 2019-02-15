@@ -34,7 +34,7 @@ amelia.authentication().login(url, username, password)
 # With shell, you can just pass the correct header with each request
 curl -vk -X POST "https://{ameliaUrl}/AmeliaRest/api/v1/auth/login"
   -H "Content-Type:application/json"
-  -d '{"ameliaUrl":{ameliaUrl}/Amelia,"username":username,"password":password}'
+  -d '{"ameliaUrl"}:{ameliaUrl}/Amelia,"username":username,"password":password'
 ```
 
 > Example Response:
@@ -117,10 +117,12 @@ Returns a list of authentication policies that a given Amelia instance has avail
 
 ### Optional URL parameters
 
-* name = Name of the policy to search for
-* page = Page of the results to return
-* size = Number of results to return
-* sort = A list of {field}, {dir} directives. Dir can either be asc or desc.
+| Parameter     | Description   | Type  |
+| ------------- |:-------------:| -----:|
+| name          | Name of the policy to search for | string |
+| page          | Page of the results to return      |   int |
+| size          | Number of results to return      |    int |
+| sort          | A list of {field}, {dir} directives. Dir can either be asc or desc      |    array[string] |
 
 # Conversation
 
