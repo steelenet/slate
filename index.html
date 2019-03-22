@@ -1579,6 +1579,8 @@ curl -vk -X POST <span class="s2">"https://{ameliaUrl}/AmeliaRest/api/v1/auth/lo
 <p>Example Request:</p>
 </blockquote>
 <pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">amelia</span>
+
+<span class="n">amelia</span><span class="o">.</span><span class="n">responder</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -vk <span class="s2">"https://{ameliaUrl}/AmeliaRest/api/v1/admin/subsystemresponders/"</span>
 -H <span class="s2">"X-Amelia-Rest-Token: token"</span>
 </code></pre>
