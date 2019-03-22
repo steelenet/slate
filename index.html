@@ -286,6 +286,14 @@
               </ul>
           </li>
           <li>
+            <a href="#user" class="toc-h1 toc-link" data-title="User">User</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-user-details-by-email" class="toc-h2 toc-link" data-title="Get user details by email">Get user details by email</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -382,30 +390,30 @@ You must replace <code>token</code> with your API key.
 <h3 id='optional-url-parameters'>Optional URL parameters</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th style="text-align: center">Description</th>
-<th style="text-align: right">Type</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Type</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>name</td>
-<td style="text-align: center">Name of the policy to search for</td>
-<td style="text-align: right">string</td>
+<td style="text-align: left">name</td>
+<td style="text-align: left">Name of the policy to search for</td>
+<td style="text-align: left">string</td>
 </tr>
 <tr>
-<td>page</td>
-<td style="text-align: center">Page of the results to return</td>
-<td style="text-align: right">int</td>
+<td style="text-align: left">page</td>
+<td style="text-align: left">Page of the results to return</td>
+<td style="text-align: left">int</td>
 </tr>
 <tr>
-<td>size</td>
-<td style="text-align: center">Number of results to return</td>
-<td style="text-align: right">int</td>
+<td style="text-align: left">size</td>
+<td style="text-align: left">Number of results to return</td>
+<td style="text-align: left">int</td>
 </tr>
 <tr>
-<td>sort</td>
-<td style="text-align: center">A list of {field}, {dir} directives. Dir can either be asc or desc</td>
-<td style="text-align: right">array[string]</td>
+<td style="text-align: left">sort</td>
+<td style="text-align: left">A list of {field}, {dir} directives. Dir can either be asc or desc</td>
+<td style="text-align: left">array[string]</td>
 </tr>
 </tbody></table>
 <h1 id='conversation'>Conversation</h1><h2 id='start-a-new-conversation'>Start a new conversation</h2>
@@ -432,18 +440,54 @@ You must replace <code>token</code> with your API key.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint starts a new conversation with Amelia.</p>
-<h3 id='required-values'>REQUIRED VALUES</h3>
-<ul>
-<li>url = The Amelia instance you want to connect to.</li>
-<li>token = The API token issued to you.</li>
-<li>domain = The Amelia domain where you want to start a conversation, use the domain code.</li>
-</ul>
-<h3 id='optional-values'>OPTIONAL VALUES</h3>
-<ul>
-<li>deliveryMode = POLLING or WEBHOOK. Defaults to POLLING. Will deliver messages to a specific URL.</li>
-<li>webhookUrl = Required if WEBHOOK deliveryMode is chosen. URL to deliver messages to.</li>
-<li>secret = If specified, this exact text will be included in all posts to the specified webhookUrl as a header X-Amelia-Webhook-Secret, which you may use to verify that the POST in question is coming from Amelia, and even from a specific conversation.</li>
-</ul>
+<h3 id='required-url-parameters'>Required URL parameters</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">url</td>
+<td style="text-align: left">The Amelia instance you want to connect to</td>
+<td style="text-align: left">string</td>
+</tr>
+<tr>
+<td style="text-align: left">token</td>
+<td style="text-align: left">The API token issued to you</td>
+<td style="text-align: left">string</td>
+</tr>
+<tr>
+<td style="text-align: left">domain</td>
+<td style="text-align: left">The Amelia domain code where you want to start a conversation</td>
+<td style="text-align: left">string</td>
+</tr>
+</tbody></table>
+<h3 id='optional-url-parameters-2'>Optional URL parameters</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">deliveryMode</td>
+<td style="text-align: left">POLLING or WEBHOOK. Default to POLLING. Will deliver messages to a specific URL</td>
+<td style="text-align: left">string</td>
+</tr>
+<tr>
+<td style="text-align: left">webhookUrl</td>
+<td style="text-align: left">Required if WEBHOOK deliveryMode is chosen. URL to deliver message to</td>
+<td style="text-align: left">int</td>
+</tr>
+<tr>
+<td style="text-align: left">secret</td>
+<td style="text-align: left">If specified, this exact text will be included in all posts to the specified webhookUrl as a header X-Amelia-Webbook-Secret, which can be used to verify that the POST in question is coming from Amelia, and even from a specific conversation.</td>
+<td style="text-align: left">string</td>
+</tr>
+</tbody></table>
 <h2 id='send-a-message-to-amelia'>Send a message to Amelia</h2>
 <blockquote>
 <p><font size="4">POST /AmeliaRest/api/v1/conversations/{sessionId}/send</font></p>
@@ -1163,12 +1207,26 @@ You must replace <code>token</code> with your API key.
                     </span><span class="s2">"sourceUserType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amelia"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">1549406402.410000000</span><span class="w">
                 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='things-to-look-for-in-the-poll-response'>Things to look for in the poll response</h3>
-<ul>
-<li>X-Amelia-Conversation-Id = This is the ID denotes a unique conversation with Amelia.</li>
-<li>messageText = The raw message text returned from Amelia.</li>
-<li>timeStamp = The time a message was delivered in epoch time.</li>
-</ul>
+</span></code></pre><h3 id='understanding-a-poll-response'>Understanding a poll response</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">X-Amelia-Conversation-Id</td>
+<td style="text-align: left">Denotes a unique conversation with Amelia</td>
+</tr>
+<tr>
+<td style="text-align: left">messageText</td>
+<td style="text-align: left">The raw message text returned from Amelia</td>
+</tr>
+<tr>
+<td style="text-align: left">timeStamp</td>
+<td style="text-align: left">The time a message was delivered in epoch time</td>
+</tr>
+</tbody></table>
 <h1 id='domains'>Domains</h1><h2 id='get-all-domains'>Get all domains</h2>
 <blockquote>
 <p><font size="4">GET /AmeliaRest/api/v1/admin/domains/</font></p>
@@ -1203,15 +1261,45 @@ You must replace <code>token</code> with your API key.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Each id returned under content is a unique UUID to identify that domain.</p>
-<h3 id='optional-url-parameters-2'>Optional URL parameters</h3>
-<ul>
-<li>name = The name of the domain</li>
-<li>code = The code of the domain</li>
-<li>search = Searches both name and code</li>
-<li>page = The page result to return</li>
-<li>size = The number of results to return</li>
-<li>sort = A list of {field}, {dir} directives. Dir can either be asc or desc.</li>
-</ul>
+<h3 id='optional-url-parameters-3'>Optional URL parameters</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">The name of the domain</td>
+<td style="text-align: left">string</td>
+</tr>
+<tr>
+<td style="text-align: left">code</td>
+<td style="text-align: left">The code of the domain</td>
+<td style="text-align: left">string</td>
+</tr>
+<tr>
+<td style="text-align: left">search</td>
+<td style="text-align: left">Searches both name and code</td>
+<td style="text-align: left">string</td>
+</tr>
+<tr>
+<td style="text-align: left">page</td>
+<td style="text-align: left">The page result to return</td>
+<td style="text-align: left">int</td>
+</tr>
+<tr>
+<td style="text-align: left">size</td>
+<td style="text-align: left">Number of results to return</td>
+<td style="text-align: left">int</td>
+</tr>
+<tr>
+<td style="text-align: left">sort</td>
+<td style="text-align: left">A list of {field}, {dir} directives. Dir can either be asc or desc</td>
+<td style="text-align: left">array[string]</td>
+</tr>
+</tbody></table>
 <h2 id='create-a-domain'>Create a Domain</h2>
 <blockquote>
 <p><font size="4">POST /AmeliaRest/api/v1/admin/domains/</font></p>
@@ -1349,14 +1437,40 @@ You must replace <code>token</code> with your API key.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns a list of escalation queues available within a given Amelia instance.</p>
-<h3 id='optional-url-parameters-3'>Optional URL parameters</h3>
-<ul>
-<li>domainId = The ID of a given domain</li>
-<li>search = Search for a queue by name</li>
-<li>page = Page of the results to return</li>
-<li>size = Number of results to return</li>
-<li>sort = * sort = A list of {field}, {dir} directives. Dir can either be asc or desc.</li>
-</ul>
+<h3 id='optional-url-parameters-4'>Optional URL parameters</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">domainId</td>
+<td style="text-align: left">The ID of a given domain</td>
+<td style="text-align: left">string</td>
+</tr>
+<tr>
+<td style="text-align: left">search</td>
+<td style="text-align: left">Search for a queue by name</td>
+<td style="text-align: left">string</td>
+</tr>
+<tr>
+<td style="text-align: left">page</td>
+<td style="text-align: left">Page of the results to return</td>
+<td style="text-align: left">int</td>
+</tr>
+<tr>
+<td style="text-align: left">size</td>
+<td style="text-align: left">Number of results to return</td>
+<td style="text-align: left">int</td>
+</tr>
+<tr>
+<td style="text-align: left">sort</td>
+<td style="text-align: left">* sort - A list of {field}, {dir} directives. Dir cna either be asc or desc</td>
+<td style="text-align: left">array[string]</td>
+</tr>
+</tbody></table>
 <h1 id='intents'>Intents</h1><h2 id='get-the-intents-by-domain'>Get the intents by domain</h2>
 <blockquote>
 <p><font size="4">GET /AmeliaRest/api/v1/admin/training/intents/domain/{domainId}/</font></p>
@@ -1413,7 +1527,7 @@ You must replace <code>token</code> with your API key.
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_goal"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_goal_code"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description_of_some_goal"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"keyPhrases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"goal"</span><span class="p">,</span><span class="w"> </span><span class="s2">"phrases"</span><span class="p">,</span><span class="w"> </span><span class="s2">"are found"</span><span class="p">,</span><span class="w"> </span><span class="s2">"in"</span><span class="p">,</span><span class="w"> </span><span class="s2">"here"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"keyPhrases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"identify"</span><span class="p">,</span><span class="w"> </span><span class="s2">"theft"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">,</span><span class="w"> </span><span class="s2">"not"</span><span class="p">,</span><span class="w"> </span><span class="s2">"a"</span><span class="p">,</span><span class="w"> </span><span class="s2">"joke"</span><span class="p">,</span><span class="w"> </span><span class="s2">"jim"</span><span class="p">],</span><span class="w">
     </span><span class="s2">"actionPhrase"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"confirmContinueQuestion"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"actionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EXECUTE_BPN"</span><span class="p">,</span><span class="w">
@@ -1511,6 +1625,58 @@ You must replace <code>token</code> with your API key.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns a list of the subsystems in Amelia.</p>
+<h1 id='user'>User</h1><h2 id='get-user-details-by-email'>Get user details by email</h2>
+<blockquote>
+<p><font size="4">GET /AmeliaRest/api/v1/admin/subsystemresponders/</font></p>
+
+<p>Example Request:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">amelia</span>
+
+<span class="n">amelia</span><span class="o">.</span><span class="n">user</span><span class="p">()</span><span class="o">.</span><span class="n">getUserByEmail</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">emailAddress</span><span class="p">)</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -vk <span class="s2">"https://{ameliaUrl}/AmeliaRest/api/v1/admin/system/users/byemail/</span><span class="k">${</span><span class="nv">emailAddress</span><span class="k">}</span><span class="s2">"</span>
+-H <span class="s2">"X-Amelia-Rest-Token: token"</span>
+</code></pre>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"passwordChangeAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"externalUid"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domainId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b5af2a72-6cec-41a6-85c7-a1dd4d894e64"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"locked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Michael"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en-US"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scott"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"memberGroups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"5e266301-4063-11e8-820e-005056961315"</span><span class="p">,</span><span class="w"> </span><span class="s2">"b3e77446-b3fc-4e56-a07e-2ea655ec1f76"</span><span class="p">,</span><span class="w"> </span><span class="s2">"4d19a299-9836-4d6f-ba48-ec006c07cbda"</span><span class="p">,</span><span class="w"> </span><span class="s2">"3bd00e37-6965-4a31-8780-f593d7ee14d2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"f9c2400f-9e61-4cae-abc6-63fd48d413f1"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"confirmPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWAY"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"michael.scott@dundermifflin.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"changePassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"authenticationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8330b290-1009-40e4-b354-4f43c761f632"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"newPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timeZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Scranton"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"maxAgentActiveChats"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4e7e5cc3-eeaf-416f-984b-7869cbee62da"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Search for a user by their e-mail address.</p>
+<h3 id='url-parameters'>URL parameters</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">emailAddress</td>
+<td style="text-align: left">Email address to search for</td>
+<td style="text-align: left">string</td>
+</tr>
+</tbody></table>
 <h1 id='errors'>Errors</h1>
 <p>The Amelia API uses the following error codes:</p>
 
