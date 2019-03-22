@@ -224,6 +224,14 @@
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#login" class="toc-h2 toc-link" data-title="Login">Login</a>
+                  </li>
+                  <li>
+                    <a href="#logout" class="toc-h2 toc-link" data-title="Logout">Logout</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#authentication-policies" class="toc-h1 toc-link" data-title="Authentication Policies">Authentication Policies</a>
@@ -309,7 +317,7 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>The Amelia API can be used to poll Amelia for information, update BPNs, update users, carry on a conversation, and more.</p>
-<h1 id='authentication'>Authentication</h1>
+<h1 id='authentication'>Authentication</h1><h2 id='login'>Login</h2>
 <blockquote>
 <p><font size="4">POST /AmeliaRest/api/v1/auth/login</font></p>
 
@@ -348,6 +356,28 @@ curl -vk -X POST <span class="s2">"https://{ameliaUrl}/AmeliaRest/api/v1/auth/lo
 <aside class="notice">
 You must replace <code>token</code> with your API key.
 </aside>
+<h2 id='logout'>Logout</h2>
+<blockquote>
+<p><font size="4">POST /AmeliaRest/api/v1/auth/logout</font></p>
+
+<p>Example Request:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">amelia</span>
+
+<span class="n">amelia</span><span class="o">.</span><span class="n">authentication</span><span class="p">()</span><span class="o">.</span><span class="n">logout</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl -vk -X POST <span class="s2">"https://{ameliaUrl}/AmeliaRest/api/v1/auth/logout"</span>
+ -H <span class="s2">"X-Amelia-Rest-Token: token"</span>
+</code></pre>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34272e4c-d269-406f-a4cf-5580788ab65e"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Ends the current token session.</p>
 <h1 id='authentication-policies'>Authentication Policies</h1><h2 id='get-authentication-policies'>Get authentication policies</h2>
 <blockquote>
 <p><font size="4">GET /AmeliaRest/api/v1/admin/system/authenticationPolicies/</font></p>
