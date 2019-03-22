@@ -118,7 +118,7 @@ Returns a list of authentication policies that a given Amelia instance has avail
 ### Optional URL parameters
 
 | Parameter     | Description   | Type  |
-| ------------- |:-------------:| -----:|
+| :------------- |:-------------| :-----|
 | name          | Name of the policy to search for | string |
 | page          | Page of the results to return      |   int |
 | size          | Number of results to return      |    int |
@@ -157,15 +157,22 @@ curl -vk -X POST  "https://{ameliaUrl}/AmeliaRest/api/v1/conversations/new"
 
 This endpoint starts a new conversation with Amelia.
 
-### REQUIRED VALUES
-* url = The Amelia instance you want to connect to.
-* token = The API token issued to you.
-* domain = The Amelia domain where you want to start a conversation, use the domain code.
+### Required URL parameters
 
-### OPTIONAL VALUES
-* deliveryMode = POLLING or WEBHOOK. Defaults to POLLING. Will deliver messages to a specific URL.
-* webhookUrl = Required if WEBHOOK deliveryMode is chosen. URL to deliver messages to.
-* secret = If specified, this exact text will be included in all posts to the specified webhookUrl as a header X-Amelia-Webhook-Secret, which you may use to verify that the POST in question is coming from Amelia, and even from a specific conversation.
+| Parameter     | Description   | Type  |
+| :------------- |:-------------| :-----|
+| url          | The Amelia instance you want to connect to | string |
+| token          | The API token issued to you      |   string |
+| domain          | The Amelia domain code where you want to start a conversation      |    string |
+
+
+### Optional URL parameters
+
+| Parameter     | Description   | Type  |
+| :------------- |:-------------| :-----|
+| deliveryMode          | POLLING or WEBHOOK. Default to POLLING. Will deliver messages to a specific URL | string |
+| webhookUrl          | Required if WEBHOOK deliveryMode is chosen. URL to deliver message to     |   int |
+| secret          | If specified, this exact text will be included in all posts to the specified webhookUrl as a header X-Amelia-Webbook-Secret, which can be used to verify that the POST in question is coming from Amelia, and even from a specific conversation.      |   string |
 
 ## Send a message to Amelia
 
@@ -897,10 +904,13 @@ This endpoint polls a conversation and returns data about a conversation. The se
 				}
 ```
 
-### Things to look for in the poll response
-* X-Amelia-Conversation-Id = This is the ID denotes a unique conversation with Amelia.
-* messageText = The raw message text returned from Amelia.
-* timeStamp = The time a message was delivered in epoch time.
+### Understanding a poll response
+
+| Parameter     | Description   |
+| :------------- |:-------------|
+| X-Amelia-Conversation-Id          | Denotes a unique conversation with Amelia |
+| messageText          | The raw message text returned from Amelia      |
+| timeStamp          | The time a message was delivered in epoch time      |
 
 # Domains
 
@@ -945,14 +955,17 @@ curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/domains/"
 
 Each id returned under content is a unique UUID to identify that domain.
 
+
 ### Optional URL parameters
 
-* name = The name of the domain
-* code = The code of the domain
-* search = Searches both name and code
-* page = The page result to return
-* size = The number of results to return
-* sort = A list of {field}, {dir} directives. Dir can either be asc or desc.
+| Parameter     | Description   | Type  |
+| :------------- |:-------------| :-----|
+| name          | The name of the domain | string |
+| code          | The code of the domain      |   string |
+| search        | Searches both name and code |   string |
+| page          | The page result to return   |   int    |
+| size          | Number of results to return      |    int |
+| sort          | A list of {field}, {dir} directives. Dir can either be asc or desc      |    array[string] |
 
 ## Create a Domain
 
@@ -1105,11 +1118,13 @@ Returns a list of escalation queues available within a given Amelia instance.
 
 ### Optional URL parameters
 
-* domainId = The ID of a given domain
-* search = Search for a queue by name
-* page = Page of the results to return
-* size = Number of results to return
-* sort = * sort = A list of {field}, {dir} directives. Dir can either be asc or desc.
+| Parameter     | Description   | Type  |
+| :------------- |:-------------| :-----|
+| domainId          | The ID of a given domain | string |
+| search          | Search for a queue by name      |   string |
+| page          | Page of the results to return      |    int |
+| size          | Number of results to return      |    int |
+| sort          | * sort - A list of {field}, {dir} directives. Dir cna either be asc or desc | array[string] |
 
 # Intents
 
@@ -1181,7 +1196,7 @@ curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/training/intents/intentId/
 	"name": "some_goal",
 	"code": "some_goal_code",
 	"description": "description_of_some_goal",
-	"keyPhrases": ["goal", "phrases", "are found", "in", "here"],
+	"keyPhrases": ["identify", "theft", "is", "not", "a", "joke", "jim"],
 	"actionPhrase": null,
 	"confirmContinueQuestion": "",
 	"actionType": "EXECUTE_BPN",
@@ -1289,3 +1304,56 @@ curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/subsystemresponders/"
 ```
 
 Returns a list of the subsystems in Amelia.
+
+# User
+
+## Get user details by email
+
+> <font size="4">GET /AmeliaRest/api/v1/admin/subsystemresponders/</font>
+
+> Example Request:
+
+```python
+import amelia
+
+amelia.user().getUserByEmail(url, token, emailAddress)
+```
+
+```shell
+curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/system/users/byemail/${emailAddress}"
+-H "X-Amelia-Rest-Token: token"
+```
+
+> Example Response:
+
+```json
+{
+	"passwordChangeAllowed": false,
+	"externalUid": "",
+	"domainId": "b5af2a72-6cec-41a6-85c7-a1dd4d894e64",
+	"locked": false,
+	"firstName": "Michael",
+	"locale": "en-US",
+	"lastName": "Scott",
+	"memberGroups": ["5e266301-4063-11e8-820e-005056961315", "b3e77446-b3fc-4e56-a07e-2ea655ec1f76", "4d19a299-9836-4d6f-ba48-ec006c07cbda", "3bd00e37-6965-4a31-8780-f593d7ee14d2", "f9c2400f-9e61-4cae-abc6-63fd48d413f1"],
+	"confirmPassword": null,
+	"availability": "AWAY",
+	"email": "michael.scott@dundermifflin.com",
+	"changePassword": false,
+	"authenticationPolicyId": "8330b290-1009-40e4-b354-4f43c761f632",
+	"newPassword": null,
+	"timeZone": "America/Scranton",
+	"maxAgentActiveChats": 0,
+	"expired": false,
+	"id": "4e7e5cc3-eeaf-416f-984b-7869cbee62da",
+	"enabled": true
+}
+```
+
+Search for a user by their e-mail address.
+
+### URL parameters
+
+| Parameter     | Description   | Type  |
+| :------------- |:-------------| :-----|
+| emailAddress          | Email address to search for | string |
