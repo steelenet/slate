@@ -1250,6 +1250,8 @@ The intentId can be obtained from the [get intents endpoint](#get-the-intents-by
 
 ```python
 import amelia
+
+amelia.responder().get(url, token)
 ```
 
 ```shell
