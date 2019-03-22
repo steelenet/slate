@@ -20,6 +20,8 @@ The Amelia API can be used to poll Amelia for information, update BPNs, update u
 
 # Authentication
 
+## Login
+
 > <font size="4">POST /AmeliaRest/api/v1/auth/login</font>
 
 > Example Request:
@@ -63,6 +65,35 @@ Once a token has been issued, Amelia for the API key to be included in all API r
 <aside class="notice">
 You must replace <code>token</code> with your API key.
 </aside>
+
+## Logout
+
+> <font size="4">POST /AmeliaRest/api/v1/auth/logout</font>
+
+> Example Request:
+
+```python
+import amelia
+
+amelia.authentication().logout(url, token)
+```
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl -vk -X POST "https://{ameliaUrl}/AmeliaRest/api/v1/auth/logout"
+ -H "X-Amelia-Rest-Token: token"
+```
+
+> Example Response:
+
+```json
+{
+	"status": 201,
+	"token": "34272e4c-d269-406f-a4cf-5580788ab65e"
+}
+```
+
+Ends the current token session.
 
 # Authentication Policies
 
