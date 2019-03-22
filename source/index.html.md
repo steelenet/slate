@@ -165,13 +165,12 @@ This endpoint starts a new conversation with Amelia.
 | token          | The API token issued to you      |   string |
 | domain          | The Amelia domain code where you want to start a conversation      |    string |
 
-
 ### Optional URL parameters
 
 | Parameter     | Description   | Type  |
 | :------------- |:-------------| :-----|
 | deliveryMode          | POLLING or WEBHOOK. Default to POLLING. Will deliver messages to a specific URL | string |
-| webhookUrl          | Required if WEBHOOK deliveryMode is chosen. URL to deliver message to     |   int |
+| webhookUrl          | Required if WEBHOOK deliveryMode is chosen. URL to deliver message to     |   string |
 | secret          | If specified, this exact text will be included in all posts to the specified webhookUrl as a header X-Amelia-Webbook-Secret, which can be used to verify that the POST in question is coming from Amelia, and even from a specific conversation.      |   string |
 
 ## Send a message to Amelia
@@ -1306,6 +1305,61 @@ curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/subsystemresponders/"
 Returns a list of the subsystems in Amelia.
 
 # User
+
+## Get users
+
+> <font size="4">GET /AmeliaRest/api/v1/admin/system/users/</font>
+
+> Example Request:
+
+```python
+import amelia
+
+amelia.user().get(url, token, domainId, memberOfGroupId, search, page, size, sort)
+```
+
+```shell
+curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/system/users/"
+-H "X-Amelia-Rest-Token: token"
+```
+
+> Example Response:
+
+```json
+{
+	"totalPages": 20,
+	"totalElements": 193,
+	"content": [{
+		"email": "michael.scott@dundermifflin.com",
+		"primaryDomain": "global",
+		"id": "009ed367-2cd0-4805-8492-cf94725d0a78",
+		"name": "Michael Scott"
+	}, {
+		"email": "pam.beasley@dundermifflin.com",
+		"primaryDomain": "Exclusive Agency",
+		"id": "0126b690-96eb-4dd6-b425-69cc80dc4173",
+		"name": "Pam Beasley"
+	}, {
+		"email": "jim.halpert(dundermifflin.com",
+		"primaryDomain": "Unlicensed Service",
+		"id": "01b47b08-59cf-4159-b83f-82d200beb003",
+		"name": "Jim Halpert"
+	}],
+	"last": false,
+	"first": true
+}
+```
+
+### Optional URL parameters
+
+| Parameter     | Description   | Type  |
+| :------------- |:-------------| :-----|
+| domainId          | The domain to search within | string |
+| memberOfGroupId   | The group to search within | string |
+| search  | Text to search for the user | string |
+| page          | Page of the results to return      |    int |
+| size          | Number of results to return      |    int |
+| sort          | * sort - A list of {field}, {dir} directives. Dir cna either be asc or desc | array[string] |
 
 ## Get user details by email
 
