@@ -1396,7 +1396,7 @@ curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/system/users/"
 
 ## Get user details by email
 
-> <font size="4">GET /AmeliaRest/api/v1/admin/subsystemresponders/</font>
+> <font size="4">GET /AmeliaRest/api/v1/admin/system/users/byemail/{emailAddress}</font>
 
 > Example Request:
 
@@ -1444,3 +1444,55 @@ Search for a user by their e-mail address.
 | Parameter     | Description   | Type  |
 | :------------- |:-------------| :-----|
 | emailAddress          | Email address to search for | string |
+
+## Get user details by external ID
+
+> <font size="4">GET /AmeliaRest/api/v1/admin/system/users/byexternaluid/{externalUid}</font>
+
+> Example Request:
+
+```python
+import amelia
+
+amelia.user().getUserByExternalUid(url, token, uid)
+```
+
+```shell
+curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/system/users/byemail/${externalUid}"
+-H "X-Amelia-Rest-Token: token"
+```
+
+> Example Response:
+
+```json
+{
+	"passwordChangeAllowed": false,
+	"externalUid": "mscott",
+	"domainId": "b5af2a72-6cec-41a6-85c7-a1dd4d894e64",
+	"locked": false,
+	"firstName": "Michael",
+	"locale": "en-US",
+	"lastName": "Scott",
+	"memberGroups": ["560c0fbf-fd82-43ff-aec6-5fae19f0cb07", "34f141c9-7463-4e54-b52a-14da2821f12a", "d1b35144-f401-4778-8e97-aba75f1cf9a4", "66600fcb-540a-4971-a3c0-95eac391baf0"],
+	"confirmPassword": null,
+	"availability": "AWAY",
+	"email": "michael.scott@dundermifflin.com",
+	"changePassword": false,
+	"authenticationPolicyId": "dced76c3-c098-499a-b3bc-5a9818c89a81",
+	"newPassword": null,
+	"timeZone": "Americas/Scranton",
+	"maxAgentActiveChats": 0,
+	"expired": false,
+	"id": "88f3f835-cea7-45aa-bc32-03e03dc08ec0",
+	"enabled": true,
+	"attributes": []
+}
+```
+
+Search for a user by their external UID.
+
+### URL parameters
+
+| Parameter     | Description   | Type  |
+| :------------- |:-------------| :-----|
+| externalUid          | External UID to search for | string |
