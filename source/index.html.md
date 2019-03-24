@@ -95,8 +95,6 @@ curl -vk -X POST "https://{ameliaUrl}/AmeliaRest/api/v1/auth/logout"
 
 Ends the current token session.
 
-# Authentication Policies
-
 ## Get authentication policies
 
 > <font size="4">GET /AmeliaRest/api/v1/admin/system/authenticationPolicies/</font>
@@ -105,6 +103,8 @@ Ends the current token session.
 
 ```python
 import amelia
+
+amelia.authentication().getPolicies(url, token)
 ```
 
 ```shell
