@@ -1156,6 +1156,50 @@ Returns a list of escalation queues available within a given Amelia instance.
 | size          | Number of results to return      |    int |
 | sort          | * sort - A list of {field}, {dir} directives. Dir cna either be asc or desc | array[string] |
 
+# Entities
+
+## Get entities by domain
+
+> <font size="4">GET /AmeliaRest/api/v1/admin/training/entities/domain/{domainId}/</font>
+
+> Example Request:
+
+```python
+import amelia
+
+amelia.entities().get(url, token, domainId)
+```
+
+```shell
+curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/training/entities/domain/domainId/"
+-H "X-Amelia-Rest-Token: token"
+```
+
+> Example Response:
+
+```json
+{
+	"totalPages": 1,
+	"totalElements": 1,
+	"content": [{
+		"code": "paperSales",
+		"description": "Paper Sales",
+		"created": 1549448844.773,
+		"datumType": "CUSTOM_DATUM",
+		"slotId": "643e49c8-bcb2-42cf-8314-13f5cbb6061a",
+		"modified": 1553543584.647,
+		"modifiedBy": "Michael Scott",
+		"createdBy": "Dwight Schrute",
+		"id": "eb4f0397-9f6b-4a26-92cb-966fa4a957df",
+		"name": "paperSales"
+	}],
+	"last": false,
+	"first": true
+}
+```
+
+The domainId to be passed in is not the domain name, but rather the UUID associated with a specific domain. Use the [domain API](#get-all-domains) to obtain the domainId. The JSON returns information about entities in a given domain.
+
 # Intents
 
 ## Get the intents by domain
