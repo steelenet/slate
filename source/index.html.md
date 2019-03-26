@@ -1171,7 +1171,7 @@ amelia.entities().get(url, token, domainId)
 ```
 
 ```shell
-curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/training/entities/domain/domainId/"
+curl -vk "https://${ameliaUrl}/AmeliaRest/api/v1/admin/training/entities/domain/${domainId}/"
 -H "X-Amelia-Rest-Token: token"
 ```
 
@@ -1200,6 +1200,46 @@ curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/training/entities/domain/d
 
 The domainId to be passed in is not the domain name, but rather the UUID associated with a specific domain. Use the [domain API](#get-all-domains) to obtain the domainId. The JSON returns information about entities in a given domain.
 
+## Get entity by entityId
+
+> <font size="4">GET /AmeliaRest/api/v1/admin/training/entities/{entityId}/</font>
+
+> Example Request:
+
+```python
+import amelia
+
+amelia.entities().getByEntityId(url, token, entityId)
+```
+
+```shell
+curl -vk "https://${ameliaUrl}/AmeliaRest/api/v1/admin/training/entities/${entityId}/"
+-H "X-Amelia-Rest-Token: token"
+```
+
+> Example Response:
+
+```json
+
+{
+	"compositeFields": [],
+	"domain": "c6252578-f32b-4094-90e2-a3977dac27d9",
+	"code": "paperSales",
+	"description": "Get information about paper sales",
+	"parent": null,
+	"datumType": "TEXT",
+	"spanless": true,
+	"children": [],
+	"normalizer": null,
+	"role": false,
+	"entityId": "ed9557a7-a614-4d56-a618-a63136827f17",
+	"normalizerParams": null,
+	"id": "93895ac5-4a0f-4ed1-a372-e1d663c921b3",
+	"name": "paperSales"
+}
+```
+This call will return information about a singular entity when provided with an entityId.
+
 # Intents
 
 ## Get the intents by domain
@@ -1215,7 +1255,7 @@ amelia.intent().getAll(url, token, domainId)
 ```
 
 ```shell
-curl -vk "https://{ameliaUrl}/AmeliaRest/api/v1/admin/training/intents/domain/domainId/"
+curl -vk "https://${ameliaUrl}/AmeliaRest/api/v1/admin/training/intents/domain/${domainId}/"
 -H "X-Amelia-Rest-Token: token"
 ```
 
