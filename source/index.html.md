@@ -1240,6 +1240,36 @@ curl -vk "https://${ameliaUrl}/AmeliaRest/api/v1/admin/training/entities/${entit
 ```
 This call will return information about a singular entity when provided with an entityId.
 
+## Get questions for an entity
+
+> <font size="4">GET /AmeliaRest/api/v1/admin/training/entities/{domainId}/questions</font>
+
+> Example Request:
+
+```python
+import amelia
+
+amelia.entities().getEntityQuestions(url, token, entityId)
+```
+
+```shell
+curl -vk "https://${ameliaUrl}/AmeliaRest/api/v1/admin/training/entities/${domainId}/questions"
+-H "X-Amelia-Rest-Token: token"
+```
+
+> Example Response:
+
+```json
+{
+	"text": "Would you like to speak to someone who can provide more information about this status?",
+	"entityId": "77cf35b5-fb59-44c2-b5a5-688c2cf6b6c0",
+	"id": "e2705c4a-13ef-45cd-9978-69c9e7f09054",
+	"slotId": "29a220a5-5b37-4398-a75a-369077a01be7"
+}
+```
+
+Returns the questions associated with a specific entity.
+
 # Intents
 
 ## Get the intents by domain
