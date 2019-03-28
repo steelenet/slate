@@ -1270,6 +1270,36 @@ curl -vk "https://${ameliaUrl}/AmeliaRest/api/v1/admin/training/entities/${domai
 
 Returns the questions associated with a specific entity.
 
+## Get utterances for an entity
+
+> <font size="4">GET /AmeliaRest/api/v1/admin/training/entities/{domainId}/utterances </font>
+
+> Example Request:
+
+```python
+import amelia
+
+amelia.entities().getEntityUtterances(url, token, entityId)
+```
+
+```shell
+curl -vk "https://${ameliaUrl}/AmeliaRest/api/v1/admin/training/entities/${domainId}/utterances"
+-H "X-Amelia-Rest-Token: token"
+```
+
+> Example Response:
+
+```json
+{
+	"text": "Administration of Passwords",
+	"entityId": "36876288-071a-415b-9d2b-8d9d740acf8c",
+	"id": "0b6487f2-0621-4111-9d8c-c3e5cd677879",
+	"value": "Account Administration"
+}
+```
+
+Returns the utterances associated with a specific entity.
+
 # Intents
 
 ## Get the intents by domain
